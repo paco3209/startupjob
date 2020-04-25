@@ -1,0 +1,79 @@
+:root{
+    --bkcolorTitle: #F3F3F3;
+}
+
+
+.container-info{
+    
+    .title  {
+        padding: 50px;
+        background-image: linear-gradient(to bottom, #f2f2f2 0%, #fff 70%);
+        h1{
+            text-align: center;
+            padding-top: 3vw;
+            
+            margin: 40px 0 25px 0;
+            
+        }
+        ul{
+            list-style: none;
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+            text-align: center;
+            li{
+                margin: 0;
+                padding: 0 20px 0 0;
+                float: none;
+                display: inline-block;
+                vertical-align: top;
+            }
+        }
+        .job-post-date{
+            margin-bottom: 10px;
+            color: #c1cbd1;
+            display: block;
+            font-size: 15px;
+            text-align: center;
+        }
+
+    }
+    
+}
+
+.job-container{
+        
+    width: 100%;
+ 
+    .job-header{
+        text-align: center;
+        margin-bottom: 20px;
+        font-weight: bold;
+        h2{
+            text-align: center;
+            font-weight: bold;
+            font-size: 30px;
+            
+            
+        }
+    }
+    
+
+}
+
+.details{
+    
+    .column{
+        margin: 0 200px;
+        text-align: center;
+        margin-bottom: 30px;
+        .subtitle{
+            text-align: left;
+            margin-bottom: 20px;
+            font-weight: bolder;
+        }
+        .detail{
+            text-align: left;
+        }
+        
+    }
+}

@@ -1,0 +1,112 @@
+import React from 'react';
+import 'antd/dist/antd.css';
+import {Row, Col, Input, Layout} from 'antd';
+import './style.scss';
+import LastJobs from '../Lastjobs';
+
+const { Search  } = Input;
+const {Content } = Layout;
+
+function Header(props) {
+    return (
+    <>
+
+        <div className="columns header" >
+            <div className="column">
+                <div className="leftside" >
+                <img src="/images/startup.svg" alt="startup Logo" className="startup"
+                    />
+                </div>
+            </div>
+            <div className="column">
+                <div className="rightside ">
+                    <h1 className="header-text">
+                    Conectando startups con personas.
+                </h1>
+                <br />
+                
+                    <Search size="large" className="input-search" placeholder="Puesto o palabra clave" onSearch={value => console.log(value)} enterButton />
+                
+                    </div>
+            </div>
+        </div>
+        
+         <div className="columns category-job" >
+            <div className="column">
+                <a src="/">
+                    <p>
+                        <img src="/images/webdeveloper.svg" alt="mobillkdalske" className="category-icon" />
+                        Web Developer</p>
+                    </a>
+            </div>
+            <div className="column">
+            <a src="/">
+                    <p>
+                        <img src="/images/webdeveloper.svg" alt="mobillkdalske" className="category-icon" />
+                        Web Developer</p>
+                    </a>
+            </div>
+            <div className="column">
+            <a src="/">
+                    <p>
+                        <img src="/images/webdeveloper.svg" alt="mobillkdalske" className="category-icon" />
+                        Web Developer</p>
+                    </a>
+            </div>
+            <div className="column">
+            <a src="/">
+                    <p>
+                        <img src="/images/webdeveloper.svg" alt="mobillkdalske" className="category-icon" />
+                        Web Developer</p>
+                    </a>
+            </div>
+            <div className="column">
+            <a src="/">
+                    <p>
+                        <img src="/images/webdeveloper.svg" alt="mobillkdalske" className="category-icon" />
+                        Web Developer</p>
+                    </a>
+            </div>
+            <div className="column">
+            <a src="/">
+                    <p>
+                        <img src="/images/webdeveloper.svg" alt="mobillkdalske" className="category-icon" />
+                        Web Developer</p>
+                    </a>
+            </div>
+            <div className="column">
+            <a src="/">
+                    <p>
+                        <img src="/images/webdeveloper.svg" alt="mobillkdalske" className="category-icon" />
+                        Web Developer</p>
+                    </a>
+            </div>
+
+        </div>
+        
+        <div className="columns">
+            <div className="column">
+
+                <h1>Ultimos Empleos</h1>
+            </div>
+        </div>
+
+        <div className="columns">
+            <div className="column is-three-quarters">
+                <div className="container-job">
+                 <LastJobs />
+                </div>
+                
+                
+            </div>
+            <div className="column">
+                ads
+            </div>
+        </div>
+            
+       
+    </>
+    )
+}
+
+export default Header
