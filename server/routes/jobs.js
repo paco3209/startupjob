@@ -70,5 +70,58 @@ router.post("/getjobs", (req, res) => {
 });
 
 
+router.post("/jobs_by_id", (req, res) => {
+    let type = req.query.type
+    let productIds = req.query.id
+
+    if (type === "array") {
+        let ids = req.query.id.split(',');
+        productIds = [];
+        productIds = ids.map(item => {
+            return item
+        })
+    }
+    
+    //we need to find the product information that belong to product Id 
+    Job.find({ '_id': { $in: productIds } })
+    //.populate('writer')
+    .exec((err, product) => {
+        if(err) return req.status(400).send(err)
+        return res.status(200).send(product)
+    })
+});
+
+
+router.post("/jobs_by_company",auth,  (req, res) => {
+
+    let type = req.query.type
+    let user = req.query.id
+
+    console.log(user);
+    
+    Job.find({ 'userpost': user })
+    
+    .exec((err, product) => {
+        if(err) return req.status(400).send(err)
+        return res.status(200).send(product)
+    })
+})
+
+router.post("/removeJob",auth,  (req, res) => {
+
+    let type = req.query.type
+    let jobid = req.query.id
+
+    
+    
+    Job.remove({ '_id': jobid })
+    
+    .exec((err, product) => {
+        if(err) return req.status(400).send(err)
+        return res.status(200).send(product)
+    })
+})
+
+
 
 module.exports = router;
