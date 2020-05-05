@@ -172,7 +172,7 @@ function LoginPage(props) {
                     
                     
                     <fieldset>
-                      <button type="primary" htmlType="submit" className="login-form-button"  disabled={isSubmitting} onSubmit={handleSubmit}>
+                      <button type="primary" type="" className="login-form-button"  disabled={isSubmitting} onSubmit={handleSubmit}>
                         Log in
                     </button>
                     </fieldset>
@@ -183,6 +183,7 @@ function LoginPage(props) {
                 </div>
                 </div>
                 </div>
+                
               </main>
               </div>
             

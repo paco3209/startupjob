@@ -23,7 +23,7 @@ function App() {
           <Route exact path="/login" component={Auth(LoginPage, false)} />
           <Route exact path="/register" component={Auth(RegisterPage, false)} />
           <Route exact path="/jobInfo" component={Auth(JobInfo, null)} />
-          <Route exact path="/post" component={Auth(PostJob, null)} />
+          <Route exact path="/post" component={Auth(PostJob, true)} />
         </Switch>
       
       

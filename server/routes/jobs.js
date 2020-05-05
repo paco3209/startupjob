@@ -11,13 +11,12 @@ router.post("/uploadjob", auth, (req, res) => {
     const job = new Job(req.body)
 
     job.save((err) => {
-        if (err) returnres.status(400).json({ success: false, err })
+        if (err) return res.status(400).json({ success: false, err })
         return res.status(200).json({ success: true })
     })
 
 });
 
-// Get jobs. Under construcction. No se que hace pero no tocarrrrrrr!!!!!
 router.post("/getjobs", (req, res) => {
 
     let order = req.body.order ? req.body.order : "desc";

@@ -31,58 +31,7 @@ function Header(props) {
             </div>
         </div>
         
-         <div className="columns category-job" >
-            <div className="column">
-                <a src="/">
-                    <p>
-                        <img src="/images/webdeveloper.svg" alt="mobillkdalske" className="category-icon" />
-                        Web Developer</p>
-                    </a>
-            </div>
-            <div className="column">
-            <a src="/">
-                    <p>
-                        <img src="/images/webdeveloper.svg" alt="mobillkdalske" className="category-icon" />
-                        Web Developer</p>
-                    </a>
-            </div>
-            <div className="column">
-            <a src="/">
-                    <p>
-                        <img src="/images/webdeveloper.svg" alt="mobillkdalske" className="category-icon" />
-                        Web Developer</p>
-                    </a>
-            </div>
-            <div className="column">
-            <a src="/">
-                    <p>
-                        <img src="/images/webdeveloper.svg" alt="mobillkdalske" className="category-icon" />
-                        Web Developer</p>
-                    </a>
-            </div>
-            <div className="column">
-            <a src="/">
-                    <p>
-                        <img src="/images/webdeveloper.svg" alt="mobillkdalske" className="category-icon" />
-                        Web Developer</p>
-                    </a>
-            </div>
-            <div className="column">
-            <a src="/">
-                    <p>
-                        <img src="/images/webdeveloper.svg" alt="mobillkdalske" className="category-icon" />
-                        Web Developer</p>
-                    </a>
-            </div>
-            <div className="column">
-            <a src="/">
-                    <p>
-                        <img src="/images/webdeveloper.svg" alt="mobillkdalske" className="category-icon" />
-                        Web Developer</p>
-                    </a>
-            </div>
-
-        </div>
+        <div className="has-text-centered max-w-650 mx-auto" style={{marginBottom:'40px', height:'180px'}}><h1 className="title font-900">Meet April</h1><p>Lorem ipsum is common placeholder text used to demonstrate the graphic elements of a document or visual presentation.</p></div>
         
         <div className="columns">
             <div className="column">
