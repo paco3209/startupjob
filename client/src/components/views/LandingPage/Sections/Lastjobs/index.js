@@ -47,7 +47,7 @@ function Lastjobs() {
                                     
                                      <div className="tags">
                                          {job.tags.map((job, i) => {
-                                            return <span className="tag" key={i}>{job}</span>
+                                            return <span className="tag" key={i}>{job.name}</span>
                                          })}
                                          
                                          
@@ -130,8 +130,10 @@ function Lastjobs() {
                                 
                         </div>
                         <div className="apply">
-                            <a href="/" className="button is-primary" style={{color: '#fff'}}>Aplicar</a>
+                            <a href="mailto:francisco_talenti@hotmail.com" className="button is-primary" style={{color: '#fff'}}>Aplicar</a>
+                            
                         </div>
+
                     </div>
                     
                 </article>

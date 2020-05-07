@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import NavBar from '../NavBar/NavBar';
-import { useForm } from 'react-hook-form'
+import { useForm, useFieldArray} from 'react-hook-form'
 import Footer from '../Footer/Footer';
 import { EditorState, convertToRaw } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
@@ -10,16 +10,27 @@ import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import Axios from 'axios';
 import './style.scss';
 
+
 function JobPost(props) {
-    const { register, errors, handleSubmit, reset } = useForm();
+    const { register, errors, handleSubmit, reset, control } = useForm();
+    const { fields, append, prepend, remove } = useFieldArray({
+        control,
+        name: "test"
+      });
+
     const [editorState, seteditorState] = useState(EditorState.createEmpty())
     const [requiredState, setrequiredState] = useState(EditorState.createEmpty())
     const [benefitsState, setbenefitsState] = useState(EditorState.createEmpty())
-    const [tags, settags] = useState([])
+    
+    const [applyUrl, setapplyUrl] = useState('')
+
 
     
     const onSubmit = data => {
 
+        let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        
+        
        
 
         if (!editorState || !requiredState || !benefitsState ) {
@@ -31,7 +42,7 @@ function JobPost(props) {
             userpost: props.user.userData._id,
             typeJob: data.jobtype,
             
-            tags: data.tags.split(','),
+            tags: data.test,
             link: data.link,
             requeriments: data.requirements,
             description: data.description,
@@ -85,19 +96,35 @@ function JobPost(props) {
                         <div style={{ marginBotton: '10px' }} className="select" >
                             <select style={{ marginBotton: '20px' }} name="jobtype" ref={register({ required: true })}>
                                 <option value="" disabled defaultValue="prueba">Modalidad de Trabajo</option>
-                                <option>Full Time</option>
-                                <option>Pasantia</option>
-                                <option>Part Time</option>
-                                <option>Remoto</option>
+                                <option value="fulltime">Full Time</option>
+                                <option value="pasantia">Pasantia</option>
+                                <option value="parttime">Part Time</option>
+                                <option value="remoto">Remoto</option>
 
                             </select>
                         </div>
                         <label htmlFor="link" className="label">Como aplicar?</label>
                         <input ref={register({ required: true })} name="url" style={{ marginBotton: '20px' }} type="text" className="input is-normal" placeholder="Ingresa mail o url del sitio web donde aplicar" />
                         <input ref={register({ required: true })} name="company" style={{ marginBotton: '20px' }} type="text" className="input is-normal" placeholder="Nombre de empresa" />
+                        <label htmlFor="link" className="label">Etiquetas</label>
+                        <span className="info" style={{ marginTop: '-8px', color: '#999', fontSize: '12px', marginBottom: '10px' }}>Palabras clave que se relacionen con el puesto.(ej frontend, backend).</span>
+                        <ul>
+                            {fields.map((item, index) => (
+                            <li key={item.id}>
+                                <input name={`test[${index}].name`} defaultValue={item.name} ref={register()} />
+                                <button onClick={() => remove(index)}>Eliminar</button>
+                            </li>
+                            ))}
+                        </ul>
+                        <section>
+                            <button type="button" onClick={() => append({ name: "" })} >
+                            Agregar Etiqueta
+                            </button>
+                            
+                        </section>
 
-                        <input ref={register({})}  name="tags" type="text" defaultValue="" className="input is-normal" placeholder="Etiquetas" />
-                        <span className="info" style={{ marginTop: '-8px', color: '#999', fontSize: '12px', marginBottom: '10px' }}>Palabras que se relacionen con el puesto.(ej frontend, backend). Separar etiquetas por ","</span>
+                        
+                        
                         <br />
                         {/* Reemplazar por wyswyg */}
                         <div style={{ marginTop: '20px' }}>
@@ -140,7 +167,7 @@ function JobPost(props) {
 
                             <textarea
                                 style={{ display: 'none' }}
-                                value={draftToHtml(convertToRaw(editorState.getCurrentContent()))}
+                                value={draftToHtml(convertToRaw(requiredState.getCurrentContent()))}
                                 ref={register({ required: true })}
                                 name="requirements"
                             />
@@ -165,7 +192,7 @@ function JobPost(props) {
 
                             <textarea
                                 style={{ display: 'none' }}
-                                value={draftToHtml(convertToRaw(editorState.getCurrentContent()))}
+                                value={draftToHtml(convertToRaw(benefitsState.getCurrentContent()))}
                                 ref={register({ required: true })}
                                 name="benefits"
                             />
