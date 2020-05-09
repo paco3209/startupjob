@@ -24,15 +24,24 @@ function JobPost(props) {
     
     const [applyUrl, setapplyUrl] = useState('')
 
+    const handleUrl = (event) => {
+        setapplyUrl(event.target.value)
+    }
 
     
     const onSubmit = data => {
 
         let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         
-        
-       
+        let contacto = data.url
 
+        if(re.test(contacto)){
+            contacto = "mailto:" + contacto
+        }
+
+        
+
+        
         if (!editorState || !requiredState || !benefitsState ) {
             return alert('fill all the fields first!')
         }
@@ -48,7 +57,7 @@ function JobPost(props) {
             description: data.description,
             benefits: data.benefits,
             company: data.company,
-            url: data.url
+            url: contacto
         }
 
         
@@ -104,20 +113,20 @@ function JobPost(props) {
                             </select>
                         </div>
                         <label htmlFor="link" className="label">Como aplicar?</label>
-                        <input ref={register({ required: true })} name="url" style={{ marginBotton: '20px' }} type="text" className="input is-normal" placeholder="Ingresa mail o url del sitio web donde aplicar" />
+                        <input ref={register({ required: true })} onChange={handleUrl} name="url" style={{ marginBotton: '20px' }} type="text" className="input is-normal" placeholder="Ingresa mail o url del sitio web donde aplicar" />
                         <input ref={register({ required: true })} name="company" style={{ marginBotton: '20px' }} type="text" className="input is-normal" placeholder="Nombre de empresa" />
                         <label htmlFor="link" className="label">Etiquetas</label>
                         <span className="info" style={{ marginTop: '-8px', color: '#999', fontSize: '12px', marginBottom: '10px' }}>Palabras clave que se relacionen con el puesto.(ej frontend, backend).</span>
                         <ul>
                             {fields.map((item, index) => (
                             <li key={item.id}>
-                                <input name={`test[${index}].name`} defaultValue={item.name} ref={register()} />
-                                <button onClick={() => remove(index)}>Eliminar</button>
+                                <input name={`test[${index}].name`} className="input is-small" placeholder="tag"  style={{width:'173px'}} defaultValue={item.name} ref={register()} />
+                                <button className="button is-warning is-small" onClick={() => remove(index)}>Eliminar</button>
                             </li>
                             ))}
                         </ul>
                         <section>
-                            <button type="button" onClick={() => append({ name: "" })} >
+                            <button className="button is-success is-small" type="button" onClick={() => append({ name: "" })} >
                             Agregar Etiqueta
                             </button>
                             
