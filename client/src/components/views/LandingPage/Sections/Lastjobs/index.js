@@ -10,18 +10,49 @@ import 'moment/locale/es';
 function Lastjobs() {
     const [jobs, setjobs] = useState([])
 
+    const [Skip, setSkip] = useState(0)
+    const [Limit, setLimit] = useState(8)
+    const [PostSize, setPostSize] = useState()
+
     useEffect(() => {
 
-        Axios.post('/api/jobs/getjobs')
+        const variables = {
+            skip: Skip,
+            limit: Limit,
+        }
+        getJobs(variables)
+        
+    }, [])
+
+    const getJobs = (variables) => {
+        Axios.post('/api/jobs/getjobs', variables)
             .then(response => {
                 if(response.data.success){
-                   setjobs(response.data.products) 
+                    if(variables.loadMore){
+                        setjobs([...jobs,...response.data.products]) 
+                    }else{
+                        setjobs(response.data.products)
+                    }
+                   setPostSize(response.data.postSize)
                 }else{
                     alert("Error de carga.")
                 }
             })
 
-    }, [])
+    }
+
+    const onLoadMore = () => {
+        let skip = Skip + Limit;
+
+        const variables = {
+            skip: skip,
+            limit: Limit,
+            loadMore: true
+
+        }
+        getJobs(variables)
+        setSkip(skip)
+    }
 
     const renderJobs = jobs.map((job, index) => {
         return  (
@@ -70,108 +101,15 @@ function Lastjobs() {
         <section className="section" >
 
             {renderJobs}
-            <div className="box" >
-                <article className="media">
-                    <div className="media-left">
-                        <figure className="image is-64x64">
-                            <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image" />
-                        </figure>
-                    </div> 
-                    <div className="media-content" style={{display:'flex'}}>
-                        <div className="content" style={{width:'75%'}}>
-                                
-                                    <a href="/jobInfo"><strong>Desarrollador Android Ssr</strong></a>
-                                    <small>Mulesoft</small> 
-                                    <div className="tags">
-                                        <span className="tag is-link">Part Time</span>
-                                    </div>
-                                     
-                                     <small>Hace 30 minutos</small>
-                                    <br />
-                                     <div className="tags">
-                                         <span className="tag">Hmtl</span>
-                                         <span className="tag">React</span>
-                                         <span className="tag">FrontEnd</span>
-                                         
-                                     </div>
-                                
-                        </div>
-                        <div className="apply">
-                            <a href="/" className="button is-primary" style={{color: '#fff'}}>Aplicar</a>
-                        </div>
-                    </div>
-                    
-                </article>
-            </div>
-            <div className="box">
-                <article className="media">
-                    <div className="media-left">
-                        <figure className="image is-64x64">
-                            <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image" />
-                        </figure>
-                    </div> 
-                    <div className="media-content" style={{display:'flex'}}>
-                        <div className="content" style={{width:'75%'}}>
-                                
-                                    <strong>Desarrollador Android Ssr</strong>
-                                    <small>Mulesoft</small> 
-
-                                    <div className="tags">
-                                        <span className="tag is-info">Fulltime</span>
-                                    </div>
-                                     
-                                     <small>Hace 30 minutos</small>
-                                    <br />
-                                     <div className="tags">
-                                         <span className="tag">Hmtl</span>
-                                         <span className="tag">React</span>
-                                         <span className="tag">FrontEnd</span>
-                                     </div>
-                                
-                        </div>
-                        <div className="apply">
-                            <a href="mailto:francisco_talenti@hotmail.com" className="button is-primary" style={{color: '#fff'}}>Aplicar</a>
-                            
-                        </div>
-
-                    </div>
-                    
-                </article>
-            </div>
-            <div className="box">
-                <article className="media">
-                    <div className="media-left">
-                        <figure className="image is-64x64">
-                            <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image" />
-                        </figure>
-                    </div> 
-                    <div className="media-content" style={{display:'flex'}}>
-                        <div className="content" style={{width:'75%'}}>
-                                <p>
-                                    <strong>Desarrollador Android Ssr</strong>
-                                     <small>Mulesoft</small>
-                                     <div className="tags">
-                                        <span className="tag is-warning">Remoto</span>
-                                    </div>
-                                    
-                                     <small>Hace 30 minutos</small>
-                                    <br />
-                                     <div className="tags">
-                                         <span className="tag">Hmtl</span>
-                                         <span className="tag">React</span>
-                                         <span className="tag">FrontEnd</span>
-                                     </div>
-                                </p>
-                        </div>
-                        <div className="apply" >
-                            <a href="/" className="button is-primary" style={{color: '#fff'}}>Aplicar</a>
-                        </div>
-                    </div>
-                    
-                </article>
-            </div>
+            
             
         </section>
+        <br/>
+        {PostSize >= Limit &&
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    <button className="button is-success" onClick={onLoadMore}>Ver mas empleos</button>
+                </div>
+            }
         </>
     )
 }
