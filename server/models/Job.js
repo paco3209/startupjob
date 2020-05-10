@@ -14,6 +14,10 @@ const Schema = mongoose.Schema;
         type: String,
         required: true
     }  ,
+    images: {
+        type: Array,
+        default: []
+    },
     date: { type: Date, default: Date.now },
     benefits: String,
     requeriments: String ,

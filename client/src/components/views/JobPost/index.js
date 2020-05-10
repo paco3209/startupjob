@@ -9,6 +9,7 @@ import draftToHtml from 'draftjs-to-html';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import Axios from 'axios';
 import './style.scss';
+import FileUpload from '../utils/FileUpload';
 
 
 function JobPost(props) {
@@ -21,8 +22,13 @@ function JobPost(props) {
     const [editorState, seteditorState] = useState(EditorState.createEmpty())
     const [requiredState, setrequiredState] = useState(EditorState.createEmpty())
     const [benefitsState, setbenefitsState] = useState(EditorState.createEmpty())
+    const [Images, setImages] = useState([])
     
     const [applyUrl, setapplyUrl] = useState('')
+
+    const updateImages = (newImages) => {
+        setImages(newImages)
+    }
 
     const handleUrl = (event) => {
         setapplyUrl(event.target.value)
@@ -38,7 +44,7 @@ function JobPost(props) {
         if(re.test(contacto)){
             contacto = "mailto:" + contacto
         }
-
+ 
         
 
         
@@ -50,7 +56,7 @@ function JobPost(props) {
             title: data.title,
             userpost: props.user.userData._id,
             typeJob: data.jobtype,
-            
+            images: Images,
             tags: data.test,
             link: data.link,
             requeriments: data.requirements,
@@ -60,6 +66,7 @@ function JobPost(props) {
             url: contacto
         }
 
+        console.log(newPost);
         
         
         
@@ -96,12 +103,18 @@ function JobPost(props) {
                     <h1 style={{ textAlign: 'left' }}>Publicar Empleo</h1>
                     <form onSubmit={handleSubmit(onSubmit)}>
 
-                        <input name="title" className="input is-large" ref={register({ required: true })} placeholder="Puesto / Título del aviso" style={{ width: '500px', marginBottom: '10px' }} />
-                        {errors.title && 'El titulo es obligatorio'}
-
+                        
+                        
+                    
+                            <div className="titulo" style={{display:'flex', flexDirection:'column', marginBottom:'5px'}}>
+                            <input name="title" className="input is-large" ref={register({ required: true })} placeholder="Puesto / Título del aviso" style={{ width: '500px', bottom:'0',paddingBottom:'0', marginRight:'20px' }} />
+                            {errors.title && 'El titulo es obligatorio'}
+                            </div>
+                        
+                        
+                        <FileUpload refreshFunction={updateImages} />
+                        <span className="info" style={{ marginTop: '-8px', color: '#999', fontSize: '12px', marginBottom: '10px' }}>Para eliminar la foto clickea sobre la foto</span>
                         <br />
-
-
                         <div style={{ marginBotton: '10px' }} className="select" >
                             <select style={{ marginBotton: '20px' }} name="jobtype" ref={register({ required: true })}>
                                 <option value="" disabled defaultValue="prueba">Modalidad de Trabajo</option>
