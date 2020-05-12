@@ -99,10 +99,11 @@ router.post("/getjobs", (req, res) => {
 });
 
 
-router.post("/jobs_by_id", (req, res) => {
+router.post("/jobsbyid", (req, res) => {
     let type = req.query.type
     let productIds = req.query.id
 
+    console.log(productIds)
     if (type === "array") {
         let ids = req.query.id.split(',');
         productIds = [];
@@ -117,6 +118,7 @@ router.post("/jobs_by_id", (req, res) => {
     .exec((err, product) => {
         if(err) return req.status(400).send(err)
         return res.status(200).send(product)
+        
     })
 });
 

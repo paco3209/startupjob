@@ -6,7 +6,7 @@ import '../index.scss';
 import LandingPage from "./views/LandingPage/LandingPage.js";
 import LoginPage from "./views/LoginPage/LoginPage.js";
 import RegisterPage from "./views/RegisterPage/RegisterPage.js";
-import JobInfo from './views/JobInfo/';
+import JobInfo from './views/DetailJobPage/DetailJobPage';
 import PostJob from './views/JobPost';
 
 //null   Anyone Can go inside
@@ -22,7 +22,7 @@ function App() {
           <Route exact path="/" component={Auth(LandingPage, null)} />
           <Route exact path="/login" component={Auth(LoginPage, false)} />
           <Route exact path="/register" component={Auth(RegisterPage, false)} />
-          <Route exact path="/jobInfo" component={Auth(JobInfo, null)} />
+          <Route exact path="/jobsid/:jobId" component={Auth(JobInfo, null)} />
           <Route exact path="/post" component={Auth(PostJob, true)} />
         </Switch>
       

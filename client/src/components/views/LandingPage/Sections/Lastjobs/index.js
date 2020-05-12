@@ -4,6 +4,7 @@ import './style.scss';
 import Axios from 'axios';
 import Moment from 'react-moment';
 import 'moment/locale/es';
+import ImageSlider from '../../../utils/ImageSlider';
 
 
 
@@ -59,14 +60,15 @@ function Lastjobs() {
             <div className="box" key={index}>
                 <article className="media">
                     <div className="media-left">
-                        <figure className="image is-64x64">
-                            <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image" />
+                        <figure className="image is-96x96">
+                         <ImageSlider images={job.images} />
+                        {console.log(job.images)}
                         </figure>
                     </div> 
                     <div className="media-content" style={{display:'flex'}}>
                         <div className="content" style={{width:'75%'}}>
                                 
-                        <a href="/jobInfo"><strong>{job.title}</strong></a>
+                        <a href={`/jobsid/${job._id}`}><strong>{job.title}</strong></a>
                         <br/>
                                     <small>{job.company}</small> 
                                     <div className="tags">
