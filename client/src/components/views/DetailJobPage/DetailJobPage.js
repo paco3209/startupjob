@@ -3,6 +3,7 @@ import Axios from 'axios';
 import JobInfo from './Sections/JobInfo';
 import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
+import './Sections/carousel.scss';
 
 function DetailJobPage(props) {
     const jobId = props.match.params.jobId

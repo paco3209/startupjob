@@ -62,7 +62,7 @@ function Lastjobs() {
                     <div className="media-left">
                         <figure className="image is-96x96">
                          <ImageSlider images={job.images} />
-                        {console.log(job.images)}
+                        
                         </figure>
                     </div> 
                     <div className="media-content" style={{display:'flex'}}>
