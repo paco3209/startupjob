@@ -152,6 +152,7 @@ function JobPost(props) {
                         <div style={{ marginTop: '20px' }}>
                             <label className="label">Ingresar Descripcion del puesto</label>
                             <Editor
+                            toolbar={{options: ['inline', 'blockType', 'fontSize', 'fontFamily', 'list', 'textAlign',  'link', 'embedded', 'emoji', 'image']}}
                                 editorState={editorState}
                                 toolbarClassName="toolbarClassName"
                                 wrapperClassName="wrapperClassName"

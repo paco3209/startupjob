@@ -30,14 +30,14 @@ function JobInfo(props) {
 	            </ul>
                 <small className="job-post-date"><em>Publicado <Moment  parse="YYYY-MM-DD HH:mm" locale="es" utc fromNow > {job.date}</Moment></em></small>
             </div>
-            <column className="photos">
-            <figure className="image is-480x480">
+           
+            
                 
             
                          <JobImage detail={job} />
-                        </figure>
+            
                 
-            </column>
+            
         </div>
         
         

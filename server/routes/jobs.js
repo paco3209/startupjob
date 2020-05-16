@@ -123,6 +123,15 @@ router.post("/jobsbyid", (req, res) => {
 });
 
 
+router.get("/totaljobs", (req, res) => {
+    Job.estimatedDocumentCount({},(err, result) =>{
+        if(err) return req.status(400).send(err)
+        return res.status(200).send({total :result})
+        
+    })
+        
+})
+
 router.post("/jobs_by_company",auth,  (req, res) => {
 
     let type = req.query.type

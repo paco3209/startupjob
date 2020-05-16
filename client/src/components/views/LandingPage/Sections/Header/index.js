@@ -3,6 +3,7 @@ import 'antd/dist/antd.css';
 import {Row, Col, Input, Layout} from 'antd';
 import './style.scss';
 import LastJobs from '../Lastjobs';
+import PageInfo from './PageInfo';
 
 const { Search  } = Input;
 const {Content } = Layout;
@@ -31,7 +32,7 @@ function Header(props) {
             </div>
         </div>
         
-        <div className="has-text-centered max-w-650 mx-auto" style={{marginBottom:'40px', height:'180px'}}><h1 className="title font-900">Meet April</h1><p>Lorem ipsum is common placeholder text used to demonstrate the graphic elements of a document or visual presentation.</p></div>
+        <PageInfo />
         
         <div className="columns">
             <div className="column">
