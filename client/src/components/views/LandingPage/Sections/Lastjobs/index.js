@@ -5,6 +5,7 @@ import Axios from 'axios';
 import Moment from 'react-moment';
 import 'moment/locale/es';
 import ImageSlider from '../../../utils/ImageSlider';
+import SearchFeature from '../SearchFeature';
 
 
 
@@ -14,6 +15,8 @@ function Lastjobs() {
     const [Skip, setSkip] = useState(0)
     const [Limit, setLimit] = useState(8)
     const [PostSize, setPostSize] = useState()
+    const [searchTerm, setsearchTerm] = useState("")
+    
 
     useEffect(() => {
 
@@ -53,6 +56,23 @@ function Lastjobs() {
         }
         getJobs(variables)
         setSkip(skip)
+    }
+
+    const updateSearchTerms = (newSearchTerm) => {
+
+        const variables = {
+            skip: 0,
+            limit: Limit,
+            
+            searchTerm: newSearchTerm
+        }
+
+        console.log(variables);
+        
+        setSkip(0)
+        setsearchTerm(newSearchTerm)
+
+        getJobs(variables)
     }
 
     const renderJobs = jobs.map((job, index) => {
@@ -100,6 +120,12 @@ function Lastjobs() {
 
     return (
         <>
+        <div className="searchTerm">
+        <SearchFeature
+            refreshFunction={updateSearchTerms}
+                />
+        </div>
+
         <section className="section" >
 
             {renderJobs}

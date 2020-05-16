@@ -24,9 +24,9 @@ function Header(props) {
                     <h1 className="header-text">
                     Conectando startups con personas.
                 </h1>
-                <br />
                 
-                    <Search size="large" className="input-search" placeholder="Puesto o palabra clave" onSearch={value => console.log(value)} enterButton />
+                
+                    
                 
                     </div>
             </div>

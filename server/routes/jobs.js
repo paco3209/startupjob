@@ -56,6 +56,7 @@ router.post("/getjobs", (req, res) => {
 
     let findArgs = {};
     let term = req.body.searchTerm;
+    console.log(term)
 
     for (let key in req.body.filters) {
 

@@ -37,6 +37,17 @@ const Schema = mongoose.Schema;
     },
     
   });
+
+  jobSchema.index({ 
+    title:'text',
+    description: 'text',
+}, {
+    weights: {
+        name: 5,
+        description: 1,
+    }
+})
+
 const Job = mongoose.model('Job', jobSchema);
 
 module.exports = { Job }
