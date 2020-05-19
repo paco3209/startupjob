@@ -13,12 +13,15 @@ import FileUpload from '../utils/FileUpload';
 
 
 function JobPost(props) {
+
+    
+    
     const { register, errors, handleSubmit, reset, control } = useForm();
     const { fields, append, prepend, remove } = useFieldArray({
         control,
         name: "test"
       });
-
+    
     const [editorState, seteditorState] = useState(EditorState.createEmpty())
     const [requiredState, setrequiredState] = useState(EditorState.createEmpty())
     const [benefitsState, setbenefitsState] = useState(EditorState.createEmpty())
@@ -66,7 +69,7 @@ function JobPost(props) {
             url: contacto
         }
 
-        console.log(newPost);
+        
         
         
         

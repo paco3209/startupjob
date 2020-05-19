@@ -9,7 +9,7 @@ function DetailJobPage(props) {
     const jobId = props.match.params.jobId
     const [job, setjob] = useState([])
 
-    useEffect( async() => {
+    useEffect( async () => {
         await Axios.post(`/api/jobs/jobsbyid?id=${jobId}&type=single`)
             .then(response => {
                 

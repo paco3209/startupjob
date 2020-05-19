@@ -133,22 +133,22 @@ router.get("/totaljobs", (req, res) => {
         
 })
 
-router.post("/jobs_by_company",auth,  (req, res) => {
+router.post("/jobsbycompany",auth,  (req, res) => {
 
     let type = req.query.type
     let user = req.query.id
 
-    console.log(user);
+    
     
     Job.find({ 'userpost': user })
     
-    .exec((err, product) => {
+    .exec((err, products) => {
         if(err) return req.status(400).send(err)
-        return res.status(200).send(product)
+        res.status(200).json({ success: true, products })
     })
 })
 
-router.post("/removeJob",auth,  (req, res) => {
+router.post("/removejob",auth,  (req, res) => {
 
     let type = req.query.type
     let jobid = req.query.id
@@ -159,7 +159,7 @@ router.post("/removeJob",auth,  (req, res) => {
     
     .exec((err, product) => {
         if(err) return req.status(400).send(err)
-        return res.status(200).send(product)
+        res.status(200).json({ success: true, product })
     })
 })
 

@@ -21,6 +21,7 @@ function RightMenu(props) {
     });
   };
 
+  
 
   if (user.userData && !user.userData.isAuth) {
     return (
@@ -70,6 +71,17 @@ function RightMenu(props) {
                   <span>
                   Cerrar sesión
                   </span>
+                </a>
+              </p>
+              <p className="control">
+                <a className="button is-small" href="/jobsbyuser">
+                
+                  
+                  <span>
+                  Ver Empleos Publicados
+                  </span>
+                
+                  
                 </a>
               </p>
               <p className="control">

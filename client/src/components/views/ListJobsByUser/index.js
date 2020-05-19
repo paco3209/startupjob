@@ -1,81 +1,52 @@
-import React,{useState, useEffect} from 'react';
-import {Link} from 'react-router-dom';
-import './style.scss';
+import React,{ useState, useEffect} from 'react';
 import Axios from 'axios';
+
+import { useSelector } from "react-redux";
+import NavBar from '../NavBar/NavBar';
+import Footer from '../Footer/Footer';
+import { withRouter } from 'react-router-dom';
 import Moment from 'react-moment';
 import 'moment/locale/es';
-import ImageSlider from '../../../utils/ImageSlider';
-import SearchFeature from '../SearchFeature';
+import ImageSlider from '../utils/ImageSlider';
 
 
 
-function Lastjobs() {
+
+function ListJobsByUser(props) {
     const [jobs, setjobs] = useState([])
-
-    const [Skip, setSkip] = useState(0)
-    const [Limit, setLimit] = useState(8)
-    const [PostSize, setPostSize] = useState()
-    const [searchTerm, setsearchTerm] = useState("")
     
-
     useEffect(() => {
-
-        const variables = {
-            skip: Skip,
-            limit: Limit,
-        }
-        getJobs(variables)
+        
+        getJobs()
         
     }, [])
-
-    const getJobs = (variables) => {
-        Axios.post('/api/jobs/getjobs', variables)
+    
+    const removeJob = async (id) => {
+        await Axios.post(`/api/jobs/removejob?id=${id}&type=single`)
             .then(response => {
                 if(response.data.success){
-                    if(variables.loadMore){
-                        setjobs([...jobs,...response.data.products]) 
-                    }else{
-                        setjobs(response.data.products)
-                    }
-                   setPostSize(response.data.postSize)
+                    alert("Registro Eliminado")
+                    getJobs()
                 }else{
-                    alert("Error de carga.")
+                    alert("error")
                 }
             })
-
     }
-
-    const onLoadMore = () => {
-        let skip = Skip + Limit;
-
-        const variables = {
-            skip: skip,
-            limit: Limit,
-            loadMore: true,
-            searchTerm: searchTerm
-
-        }
-        getJobs(variables)
-        setSkip(skip)
+    
+    const getJobs = async () => {
+        const user = window.localStorage.getItem('userId');
+        await Axios.post(`/api/jobs/jobsbycompany?id=${user}&type=single`)
+            .then(response => {
+                if(response.data.success){
+                    setjobs(response.data.products)
+                    
+                    
+                }else{
+                    alert("Error.")
+                }
+            })
     }
-
-    const updateSearchTerms = (newSearchTerm) => {
-
-        const variables = {
-            skip: 0,
-            limit: Limit,
-            
-            searchTerm: newSearchTerm
-        }
-
-        console.log(variables);
         
-        setSkip(0)
-        setsearchTerm(newSearchTerm)
-
-        getJobs(variables)
-    }
-
     const renderJobs = jobs.map((job, index) => {
         return  (
             <div className="box" key={index}>
@@ -109,7 +80,9 @@ function Lastjobs() {
                                 
                         </div>
                         <div className="apply">
-                          <a href={job.url}  className="button is-primary" style={{color: '#fff'}}>Aplicar</a>  
+                          <a onClick={() => {
+                              removeJob(job._id)
+                          } }className="button is-danger" style={{color: '#fff'}}>Eliminar</a>
                         </div>
                     </div>
                     
@@ -119,28 +92,17 @@ function Lastjobs() {
         )
     })
 
+    
+
     return (
         <>
-        <div className="searchTerm">
-        <SearchFeature
-            refreshFunction={updateSearchTerms}
-                />
-        </div>
-
-        <section className="section" >
-
+        <NavBar/>
+        <div className="listJobs" >
             {renderJobs}
-            
-            
-        </section>
-        <br/>
-        {PostSize >= Limit &&
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <button className="button is-success" onClick={onLoadMore}>Ver mas empleos</button>
-                </div>
-            }
+        </div>
+        <Footer />
         </>
     )
 }
 
-export default Lastjobs
+export default withRouter(ListJobsByUser)
