@@ -83,7 +83,10 @@ function ListJobsByUser(props) {
                           <a onClick={() => {
                               removeJob(job._id)
                           } }className="button is-danger" style={{color: '#fff'}}>Eliminar</a>
+                           
                         </div>
+
+
                     </div>
                     
                 </article>
@@ -97,7 +100,9 @@ function ListJobsByUser(props) {
     return (
         <>
         <NavBar/>
-        <div className="listJobs" >
+        <h1>Empleos Publicados</h1>
+        <div className="listJobs" style={{minHeight:'100vh'}} >
+            
             {renderJobs}
         </div>
         <Footer />

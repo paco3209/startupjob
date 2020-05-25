@@ -7,7 +7,7 @@ function Footer() {
             <div className="container">
                 <div className="columns">
                     <div className="column">
-                        <img src="./img/logo.png"/>
+                        <img src="./img/logo.png" alt="logo" />
                         </div>
                         <div className="column">
                             <div className="links">
@@ -23,8 +23,8 @@ function Footer() {
                             <div className="links">
                                 <h5>Contacto</h5>
                                 <ul className="contacts">
-                                    <li><a href="tel://61280932400"><i className="icon_mobile"></i>+ 61 23 8093 3400</a></li>
-                                    <li><a href="mailto:contacto@hindutimes.com"><i className="icon_mail_alt"></i>help@findoctor.com</a></li>
+                                    <li><a href="tel://61280932400"><i className="icon_mobile"></i></a></li>
+                                    <li><a href="mailto:contacto@hindutimes.com"><i className="icon_mail_alt"></i>contacto@hindutimes.com</a></li>
                                 </ul>
                                 <br/>
                                 <h5 style={{marginBottom:'8px'}}>FOLLOW US</h5>

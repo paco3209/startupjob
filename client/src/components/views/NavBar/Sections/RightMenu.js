@@ -21,6 +21,10 @@ function RightMenu(props) {
     });
   };
 
+  const errorLogin = () => {
+    alert("Debes estar logueado para poder publicar.")
+  }
+
   
 
   if (user.userData && !user.userData.isAuth) {
@@ -50,7 +54,7 @@ function RightMenu(props) {
               </p>
               <p className="control">
                 
-                <a className="button is-small is-primary" href="/">
+                <a className="button is-small is-primary" href="/login" onClick={errorLogin} >
                   
                   <span>Publicar Empleo</span>
                 </a>
@@ -89,6 +93,7 @@ function RightMenu(props) {
                 <a className="button is-small is-primary" href="/post">
                   
                   <span>Publicar Empleo</span>
+
                 </a>
               </p>
             </div>

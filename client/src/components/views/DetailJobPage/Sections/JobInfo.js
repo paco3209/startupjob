@@ -46,7 +46,7 @@ function JobInfo(props) {
                     <h2>Acerca del empleo</h2>
                 </div> 
             </div>
-            <div className="columns details" style={{display:'flex',flexDirection:'column'}}>
+            <div className="columns details" >
                 <div className="column details-content" >
                     <h4 className="subtitle">Cual va a ser tu tarea?</h4>
                     <div className="detail">
@@ -54,18 +54,25 @@ function JobInfo(props) {
                     
                     </div>
                 </div>
-                <div className="column">
+             </div>
+             <div className="columns details">   
+                <div className="column details-content">
                     <h4 className="subtitle">Requisitos para la posicion</h4>
                     <div className="detail">
                     <div dangerouslySetInnerHTML={{ __html: job.requeriments }} />
                     </div>
                 </div>
-                <div className="column">
+            </div>
+            <div className="columns details">
+                <div className="column details-content">
                     <h4 className="subtitle">Beneficios</h4>
                     <div className="detail">
                     <div dangerouslySetInnerHTML={{ __html: job.benefits }} />
                     </div>
                 </div>
+            </div>    
+            
+            <div className="columns details">
                 <div className="column">
                     <div className="detail">
                          <a href={job.url} className="button is-info" style={{color: '#fff'}}>Aplicar</a>

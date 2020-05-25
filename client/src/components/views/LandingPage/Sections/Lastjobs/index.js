@@ -28,8 +28,8 @@ function Lastjobs() {
         
     }, [])
 
-    const getJobs = (variables) => {
-        Axios.post('/api/jobs/getjobs', variables)
+    const getJobs =  async (variables) => {
+        await Axios.post('/api/jobs/getjobs', variables)
             .then(response => {
                 if(response.data.success){
                     if(variables.loadMore){
