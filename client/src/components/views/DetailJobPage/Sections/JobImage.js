@@ -11,8 +11,8 @@ function JobImage(props) {
 
             props.detail.images && props.detail.images.map(item => {
                 images.push({
-                    original: `http://192.168.0.162:5000/${item}`,
-                    thumbnail: `http://192.168.0.162:5000/${item}`
+                    original: `${item}`,
+                    thumbnail: `${item}`
                 })
             })
             setImages(images)

@@ -4,6 +4,9 @@ const { Job } = require("../models/Job");
 const multer = require('multer');
 const { auth } = require("../middleware/auth");
 
+const dotenv = require("dotenv");
+dotenv.config();
+
 
 var storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -23,13 +26,45 @@ var storage = multer.diskStorage({
 
 var upload = multer({ storage: storage }).single("file")
 
-router.post("/uploadImage", auth, (req, res) => {
+router.post("/uploadImage", auth, (req, res, next) => {
 
     upload(req, res, err => {
         if (err) {
             return res.json({ success: false, err })
         }
-        return res.json({ success: true, image: res.req.file.path, fileName: res.req.file.filename })
+        //return res.json({ success: true, image: res.req.file.path, fileName: res.req.file.filename })
+
+
+        console.log('file uploaded to server')
+        console.log(req.file)
+    
+        // SEND FILE TO CLOUDINARY
+        const cloudinary = require('cloudinary').v2
+        cloudinary.config({
+          cloud_name: process.env.CLOUD_NAME,
+          api_key: process.env.API_KEY,
+          api_secret: process.env.API_SECRET
+        })
+        
+        const path = req.file.path
+        const uniqueFilename = new Date().toISOString()
+    
+        cloudinary.uploader.upload(
+          path,
+          
+          (err, image) => {
+            if (err) return res.send(err)
+            console.log('file uploaded to Cloudinary')
+            // remove file from server
+            const fs = require('fs')
+            fs.unlinkSync(path)
+            // return image details
+            res.json({ success: true, image: image.url})
+            
+          }
+        )    
+
+
     })
 
 });
