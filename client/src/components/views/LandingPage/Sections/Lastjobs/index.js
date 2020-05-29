@@ -108,8 +108,8 @@ function Lastjobs() {
                                      </div>
                                 
                         </div>
-                        <div className="apply">
-                          <a href={job.url}  className="button is-primary" style={{color: '#fff'}}>Aplicar</a>  
+                        <div className="apply" >
+                          <a href={job.url}  className="button is-primary" style={{color: '#fff',top:'30%',width:'100%', textAlign:'center'}}>Aplicar</a>  
                         </div>
                     </div>
                     

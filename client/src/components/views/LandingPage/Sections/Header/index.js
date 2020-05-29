@@ -21,8 +21,11 @@ function Header(props) {
             </div>
             <div className="column">
                 <div className="rightside ">
-                    <h1 className="header-text">
-                    Conectando startups con personas.
+                    <h1 className="header-text animate__animated animate__backInRight ">
+                    
+
+
+                    Conectando empresas con personas.
                 </h1>
                 
                 

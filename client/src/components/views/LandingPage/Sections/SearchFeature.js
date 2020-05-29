@@ -23,7 +23,7 @@ function SearchFeature(props) {
     return (
         <div style={{textAlign:'center'}}>
             <input type="text"
-                style={{width:'400px'}}
+                style={{width:'400px',marginRight:'5px'}}
                 className="input is-info"
                 value={SearchTerms}
                 onChange={onChangeSearch}
