@@ -25,9 +25,9 @@ function Header(props) {
                     
 
 
-                    Conectando empresas con personas.
+                    Conectando empresas con personas con <span className="company_name">endlyJob</span>
                 </h1>
-                
+                <p className="description">Encontra tu primer empleo.</p>
                 
                     
                 
@@ -38,7 +38,7 @@ function Header(props) {
         <PageInfo />
         
         <div className="columns">
-            <div className="column">
+            <div className="column" style={{textAlign:'center'}}>
 
                 <h1>Ultimos Empleos</h1>
             </div>
@@ -53,6 +53,7 @@ function Header(props) {
                 
             </div>
             <div className="column">
+                
                 ads
             </div>
         </div>

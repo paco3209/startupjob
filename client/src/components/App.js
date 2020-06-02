@@ -9,6 +9,8 @@ import RegisterPage from "./views/RegisterPage/RegisterPage.js";
 import JobInfo from './views/DetailJobPage/DetailJobPage';
 import PostJob from './views/JobPost';
 import JobsbyUser from './views/ListJobsByUser';
+import About from './views/About';
+import ResetPassword from './views/ResetPassword';
 
 //null   Anyone Can go inside
 //true   only logged in user can go inside
@@ -27,6 +29,8 @@ function App() {
           <Route exact path="/post" component={Auth(PostJob, true)} />
           <Route exact path="/post" component={Auth(PostJob, true)} />
           <Route exact path="/jobsbyuser" component={Auth(JobsbyUser, true)} />
+          <Route exact path="/about" component={Auth(About, null)} />
+          <Route exact path="/reset_password" component={Auth(ResetPassword, null)} />
         </Switch>
       
       

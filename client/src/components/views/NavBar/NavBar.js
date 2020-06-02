@@ -32,7 +32,7 @@ function NavBar() {
       <div id="topNav" className="navbar-menu">
         <div className="navbar-start">
           <a className="navbar-item" href="/">Inicio</a>
-          <a className="navbar-item" href="landing.html">Nosotros</a>
+          <a className="navbar-item" href="/about">Nosotros</a>
           
         </div>
         <RightMenu />

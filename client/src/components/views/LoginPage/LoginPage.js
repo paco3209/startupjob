@@ -142,7 +142,7 @@ function LoginPage(props) {
                   <fieldset>
                       <label htmlFor="password">
                         Password
-                        <a className="login-form-forgot" href="/reset_user" style={{ float: 'right' }}>
+                        <a className="login-form-forgot" href="/reset_password" style={{ float: 'right' }}>
                       Olvidaste tu contraseña?
                       </a>
                       </label>

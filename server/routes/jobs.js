@@ -59,7 +59,7 @@ router.post("/uploadImage", auth, (req, res, next) => {
             const fs = require('fs')
             fs.unlinkSync(path)
             // return image details
-            res.json({ success: true, image: image.url})
+            res.json({ success: true, image: image})
             
           }
         )    

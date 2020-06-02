@@ -10,6 +10,7 @@ import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import Axios from 'axios';
 import './style.scss';
 import FileUpload from '../utils/FileUpload';
+import swal from 'sweetalert';
 
 
 function JobPost(props) {
@@ -52,7 +53,7 @@ function JobPost(props) {
 
         
         if (!editorState || !requiredState || !benefitsState ) {
-            return alert('fill all the fields first!')
+            return swal("Por favor, completa todos los campos.")
         }
 
         const newPost = {
@@ -76,14 +77,14 @@ function JobPost(props) {
         Axios.post('/api/jobs/uploadjob', newPost)
             .then(response => {
                 if (response.data.success) {
-                    alert('Empleo publicado con exito.')
+                    swal("Bien!", "Empleo Publicado con exito.", "success");
                     props.history.push('/')
 
                     seteditorState(EditorState.createEmpty())
                     setbenefitsState(EditorState.createEmpty())
                     setrequiredState(EditorState.createEmpty())
                 } else {
-                    alert('Failed to upload Product')
+                    swal('Error',"Por favor, vuelva a intentarlo","error")
                 }
             })
 

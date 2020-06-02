@@ -24,10 +24,10 @@ function SearchFeature(props) {
         <div style={{textAlign:'center'}}>
             <input type="text"
                 style={{width:'400px',marginRight:'5px'}}
-                className="input is-info"
+                className="input is-hover has-text-centered"
                 value={SearchTerms}
                 onChange={onChangeSearch}
-                placeholder="Buscar por posicion..."
+                placeholder="Buscar por posicion"
             />
             <button type="button" className="button is-info" onClick={searchJob} >Buscar </button>
 

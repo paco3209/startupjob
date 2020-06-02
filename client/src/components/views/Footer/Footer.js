@@ -38,7 +38,7 @@ function Footer() {
                         </div>
                         </div>
                         <div className="bottom">
-                            <ul><a href="#0">Terminos y Condiciones</a>|<a href="#0">Privacy</a></ul><div id="copy">© 2020 HinduTimes</div></div></div></footer>
+                            <ul><a href="#0">Terminos y Condiciones</a>|<a href="#0">Privacy</a></ul><div id="copy">© 2020 endlyJob</div></div></div></footer>
     )
 }
 
