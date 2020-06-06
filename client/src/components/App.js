@@ -34,7 +34,7 @@ function App() {
           <Route exact path="/jobsbyuser" component={Auth(JobsbyUser, true)} />
           <Route exact path="/about" component={Auth(About, null)} />
           <Route exact path="/reset_password" component={Auth(ResetPassword, null)} />
-          <Route exact path="/update_password/:userId/:token" component={Auth(UpdatePassword, false)} />
+          <Route exact path="/update_password/:userId/:token" component={Auth(UpdatePassword, true)} />
         </Switch>
       
       
