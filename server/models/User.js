@@ -75,6 +75,20 @@ userSchema.methods.generateToken = function(cb) {
     })
 }
 
+userSchema.methods.generateTokenResetPassword = function(cb) {
+    var user = this;
+    var token =  jwt.sign(user._id.toHexString(),'secret')
+    var oneHour = moment().add(1, 'minutes').valueOf();
+
+    user.tokenExp = oneHour;
+    user.token = token;
+    user.save(function (err, user){
+        if(err) return cb(err)
+        cb(null, user);
+    })
+}
+
+
 userSchema.statics.findByToken = function (token, cb) {
     var user = this;
 

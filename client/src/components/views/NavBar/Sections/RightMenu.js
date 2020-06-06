@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 
 function RightMenu(props) {
   const user = useSelector(state => state.user)
-
+  console.log(user)
   const logoutHandler = () => {
     axios.get(`${USER_SERVER}/logout`).then(response => {
       if (response.status === 200) {
@@ -25,48 +25,49 @@ function RightMenu(props) {
     alert("Debes estar logueado para poder publicar.")
   }
 
-  
+  const NavbarGuest = () => {
 
-  if (user.userData && !user.userData.isAuth) {
     return (
-
       <div className="navbar-end">
-          <div className="navbar-item">
-            <div className="field is-grouped">
-              <p className="control">
-                <a className="button is-small" href="/register">
-                  <span className="icon">
-                    <i className="fa fa-user-plus"></i>
-                  </span>
-                  <span>
-                  Regístrate
-                  </span>
-                </a>
-              </p>
-              <p className="control">
-                
-                <a className="button is-small is-outlined" href="/login">
-                  <span className="icon">
-                    <i className="fa fa-user"></i>
-                  </span>
-                  <span>Iniciar sesión</span>
-                </a>
-              </p>
-              <p className="control">
-                
-                <a className="button is-small is-primary" href="/login" onClick={errorLogin} >
-                  
-                  <span>Publicar Empleo</span>
-                </a>
-              </p>
-            </div>
-          </div>
+      <div className="navbar-item">
+        <div className="field is-grouped">
+          <p className="control">
+            <a className="button is-small" href="/register">
+              <span className="icon">
+                <i className="fa fa-user-plus"></i>
+              </span>
+              <span>
+              Regístrate
+              </span>
+            </a>
+          </p>
+          <p className="control">
+            
+            <a className="button is-small is-outlined" href="/login">
+              <span className="icon">
+                <i className="fa fa-user"></i>
+              </span>
+              <span>Iniciar sesión</span>
+            </a>
+          </p>
+          <p className="control">
+            
+            <a className="button is-small is-primary" href="/login" onClick={errorLogin} >
+              
+              <span>Publicar Empleo</span>
+            </a>
+          </p>
         </div>
-      
+      </div>
+    </div>
     )
-  } else {
-    return (
-      <div className="navbar-end">
+
+  }
+
+  const NavbarUser =()=>{
+
+    return(
+    <div className="navbar-end">
           <div className="navbar-item">
             <div className="field is-grouped">
               <p className="control">
@@ -99,9 +100,17 @@ function RightMenu(props) {
             </div>
           </div>
         </div>
-      
-    )
+      )
+
   }
+
+
+const navbar = user.userData && user.userData.isAuth ? <NavbarUser /> :<NavbarGuest />  ;
+
+return(
+  navbar
+)
+  
 }
 
 export default withRouter(RightMenu);

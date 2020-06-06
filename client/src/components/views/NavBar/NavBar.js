@@ -15,6 +15,8 @@ function NavBar() {
     setVisible(false)
   };
 
+
+  
   return (
     
     <nav className="navbar is-white topNav">

@@ -4,13 +4,13 @@ let nodemailer = require("nodemailer");
 let transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "",
-    pass: ""
+    user: "franciscotalenti@gmail.com",
+    pass: "frano4240*"
   }
 })
 
 let getPasswordResetURL = (user, token) =>
-  `http://localhost:3000/password/reset/${user._id}/${token}`
+  `http://localhost:3000/update_password/${user._id}/${token}`
 
 let resetPasswordTemplate = (user, url) => {
   const from = process.env.EMAIL_LOGIN
@@ -26,6 +26,8 @@ let resetPasswordTemplate = (user, url) => {
   <p>–Your friends at Backwoods</p>
   `
 
+
+  
   return { from, to, subject, html }
 }
 

@@ -23,6 +23,35 @@ router.get("/auth", auth, (req, res) => {
     });
 });
 
+router.post("/receive_new_password/:userId/:token", (req, res) => {
+const { userId, token } = req.params
+  const { password } = req.body
+  console.log(password)
+  // highlight-start
+  User.findOne({ _id: userId })
+    .then(user => {
+      const secret = user.password + "-" + user.createdAt
+      const payload = jwt.decode(token, secret)
+      if (payload.userId === user.id) {
+        bcrypt.genSalt(10, function(err, salt) {
+          // Call error-handling middleware:
+          if (err) return
+          bcrypt.hash(password, salt, function(err, hash) {
+            // Call error-handling middleware:
+            if (err) return
+            User.findOneAndUpdate({ _id: userId }, { password: hash })
+              .then(() => res.status(202).json("Password changed accepted"))
+              .catch(err => res.status(500).json(err))
+          })
+        })
+      }
+    })
+    // highlight-end
+    .catch(() => {
+      res.status(404).json("Usuario Invalido")
+    })
+})
+
 router.post("/register", (req, res) => {
 
     const user = new User(req.body);
@@ -81,8 +110,8 @@ router.post("/reset_pw/user/:email",(req,res) => {
             loginSuccess: false,
             message: "Auth failed, email not found"
         });
-        console.log(user)
-        user.generateToken((err,user) => {
+        
+        user.generateTokenResetPassword((err,user) => {
             if (err) return res.status(400).send(err);
                 const token = user.token
                 const url = getPasswordResetURL(user,token)

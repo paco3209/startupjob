@@ -11,6 +11,8 @@ import PostJob from './views/JobPost';
 import JobsbyUser from './views/ListJobsByUser';
 import About from './views/About';
 import ResetPassword from './views/ResetPassword';
+import UpdatePassword from './views/UpdatePassword/UpdatePassword'
+
 
 //null   Anyone Can go inside
 //true   only logged in user can go inside
@@ -18,6 +20,7 @@ import ResetPassword from './views/ResetPassword';
 
 function App() {
   return (
+    
     <Suspense fallback={(<div>Loading...</div>)}>
       
       
@@ -31,6 +34,7 @@ function App() {
           <Route exact path="/jobsbyuser" component={Auth(JobsbyUser, true)} />
           <Route exact path="/about" component={Auth(About, null)} />
           <Route exact path="/reset_password" component={Auth(ResetPassword, null)} />
+          <Route exact path="/update_password/:userId/:token" component={Auth(UpdatePassword, false)} />
         </Switch>
       
       
