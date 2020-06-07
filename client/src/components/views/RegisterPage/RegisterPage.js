@@ -114,7 +114,7 @@ function RegisterPage(props) {
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     className={
-                                      errors.name && touched.name ? 'text-input error' : 'input'
+                                      errors.name && touched.name ? 'input error' : 'input'
                                     }
                                   />
                                   {errors.name && touched.name && (
@@ -131,7 +131,7 @@ function RegisterPage(props) {
                                       onChange={handleChange}
                                       onBlur={handleBlur}
                                       className={
-                                        errors.lastName && touched.lastName ? 'text-input error' : 'input'
+                                        errors.lastName && touched.lastName ? 'input error' : 'input'
                                       }
                                     />
                                     {errors.lastName && touched.lastName && (
@@ -150,7 +150,7 @@ function RegisterPage(props) {
                                       onChange={handleChange}
                                       onBlur={handleBlur}
                                       className={
-                                        errors.password && touched.password ? 'text-input error' : 'input'
+                                        errors.password && touched.password ? 'input error' : 'input'
                                       }
                                     />
                                     {errors.password && touched.password && (
@@ -167,7 +167,7 @@ function RegisterPage(props) {
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                         className={
-                                          errors.confirmPassword && touched.confirmPassword ? 'text-input error' : 'input'
+                                          errors.confirmPassword && touched.confirmPassword ? 'input error' : 'input'
                                         }
                                       />
                                       {errors.confirmPassword && touched.confirmPassword && (
