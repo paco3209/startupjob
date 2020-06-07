@@ -3,98 +3,57 @@
     --primary-letter: #665919;
 }
 
-.registration{
-    height: 100vh;
-    .register-bg{
-        height: 100vh;
-        background-color: var(--primary);
-              
-        
-        
+
+.mall-form-control{
+    margin-bottom: 12px;
+    .signup-label{
+        display: block;
+    font-family: 'Montserrat',sans-serif;
+    font-weight: 500;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #999;
     }
-    .register-form{
-        margin-top: 5px;
-        align-content: center;
-        overflow: hidden;
-        .form-container{
-            height: 100%;
-            padding-top: 80px;
-            align-content: center;
-            
-            h2{
-                text-align: center;
-                font-weight: bold;
-                margin-bottom: 15px;
-             }
-            .form{
-                padding: 30px 60px 0;
-                margin: 0;
-                width: 100%;
-                
-                
-             
-             .login-form-button{
-                border-radius: 8px;
-                width: 200px;
-                height: 40px;
-                text-align: center;
-                background-color: var(--primary);
-                color: var(--primary-letter);
-                font-size: 16px;
-                font-weight: bold;
-                position: relative;
-                display: block;
-                margin-top: 10px;
-                cursor: pointer;
-                &:hover{
-                    background-color: var(--primary);
-                }
-                
-            }
-            .input-feedback{
-                color: red;
-                font-size: 10px;
-                margin-bottom: 0px;
-                line-height: 10px;
-            }
-             .text-input{
-                width: 100%;
-                
-                margin: 3px 10px;
-                border: 1px solid transparent;
-                font-size: 14px;
-                font-weight: 400;
-                line-height: 24px;
-                box-sizing: border-box;
-                height: 40px;
-                padding: 10px 16px;
-                border-radius: 8px;
-                color: #0d0c22;
-                background-color: #f3f3f4;
-                &.error{
-                    margin-bottom: 0;;
-                }               
-                &:hover{
-                    background-color: #fff;
-                    border-color: var(--primary);
-                };
-                &:focus{
-                    background-color: #fff;
-                    border-color: 1px solid var(--primary);
-                    outline: none !important;
-                    
-                    box-shadow: 0 0 10px var(--primary) ;
-                        }
-                        ;
-            }
+    .input-email{
+        height: 36px;
+        border-radius: 4px;
+        border: 1px solid #e3e3e3;
+        width: 100%;
+        padding: 0 10px;
+        outline: none !important;
+        transition: all 0.3s;
+    }
+    
+    
+}
+.mall-two-fields{
+    display: flex;
+    justify-content: space-between;
+}
 
-                
-            }
+.mall-signup-terms{
+    .terms{
+        font-size: 10px;
+        color: #999 ;
+        .termsconditions{
+            color: #6C61F6;
+
         }
-
     }
 }
 
+.not-member{
+    color: #a9abac !important ; 
+    font-weight: 500 !important; 
+    margin-top: 20px;
+    &:hover{
+        color: #6c61f6 !important;
+    }
+    }
+.mockup{
+    height: 357px;
+    width: 671px;
+}
 
 @media (max-width: 480px){
     .column{

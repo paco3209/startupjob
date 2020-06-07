@@ -6,34 +6,6 @@ import { registerUser } from "../../../_actions/user_actions";
 import { useDispatch } from "react-redux";
 import './style.scss';
 
-import {
-  Form,
-  Input,
-  Button,
-} from 'antd';
-
-const formItemLayout = {
-  labelCol: {
-    xs: { span: 24 },
-    sm: { span: 8 },
-  },
-  wrapperCol: {
-    xs: { span: 24 },
-    sm: { span: 16 },
-  },
-};
-const tailFormItemLayout = {
-  wrapperCol: {
-    xs: {
-      span: 24,
-      offset: 0,
-    },
-    sm: {
-      span: 16,
-      offset: 8,
-    },
-  },
-};
 
 function RegisterPage(props) {
   const dispatch = useDispatch();
@@ -99,114 +71,153 @@ function RegisterPage(props) {
         } = props;
         return (
           <>
-            <div className="columns registration">
-              <div className="column is-half register-form">
-                
-                
-                <div className="form-container">
-                <h2>Completá tus datos</h2>
-                <Form className="form" {...formItemLayout} onSubmit={handleSubmit} >
+            <div className="login-wrapper columns is-gapless">
+              <div className="column is-5">
+                <div className="hero is-fullheight">
+                  <div className="hero-heading">
+                  <div className="section intro-section has-text-centered is-signup">
+                    <a href="https://cssninja.io"><img className="top-logo" src="https://cssninja.io/themes/cssninja-latest/assets/images/logo/cssninja-grayscale.svg" alt="Brand"/></a>
+                </div>
+                  </div>
+                  <div className="hero-body">
+                    <div className="container">
+                      <div className="signup-form-wrap">
+                        <div className="mail-signup">
+                          <div className="mail-signup-form">
+                            <form onSubmit={handleSubmit} >
+                              <div className="mall-form-control">
+                                <label htmlFor="signup-email" className="signup-label">E-mail</label>
+                                <input
+                                  id="email"
+                                  placeholder="email@email.com"
+                                  type="email"
+                                  value={values.email}
+                                  onChange={handleChange}
+                                  onBlur={handleBlur}
+                                  className={
+                                    errors.email && touched.email ? 'input input-email error' : 'input input-email'
+                                  }
+                                  required
+                                />
+                                {errors.email && touched.email && (
+                                  <div className="input-feedback">{errors.email}</div>
+                                )}
+                              </div>
+                              <div className="mall-two-fields">
+                                <div className="mall-form-control">
+                                <label htmlFor="signup-name" className="signup-label">Nombre</label>
+                                <input
+                                    id="name"
+                                    
+                                    type="text"
+                                    value={values.name}
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    className={
+                                      errors.name && touched.name ? 'text-input error' : 'input'
+                                    }
+                                  />
+                                  {errors.name && touched.name && (
+                                    <div className="input-feedback">{errors.name}</div>
+                                  )}
+                                </div>
+                                <div className="mall-form-control">
+                                  <label htmlFor="lastname" className="signup-label">Apellido</label>
+                                  <input
+                                      id="lastName"
+                                      
+                                      type="text"
+                                      value={values.lastName}
+                                      onChange={handleChange}
+                                      onBlur={handleBlur}
+                                      className={
+                                        errors.lastName && touched.lastName ? 'text-input error' : 'input'
+                                      }
+                                    />
+                                    {errors.lastName && touched.lastName && (
+                                      <div className="input-feedback">{errors.lastName}</div>
+                                    )}
+                                </div>
+                              </div>
+                              <div className="mall-two-fields">
+                                <div className="mall-form-control">
+                                    <label htmlFor="password" className="signup-label">Contraseña</label>
+                                    <input
+                                      id="password"
+                                      
+                                      type="password"
+                                      value={values.password}
+                                      onChange={handleChange}
+                                      onBlur={handleBlur}
+                                      className={
+                                        errors.password && touched.password ? 'text-input error' : 'input'
+                                      }
+                                    />
+                                    {errors.password && touched.password && (
+                                      <div className="input-feedback">{errors.password}</div>
+                                    )}
+                                </div>
+                                <div className="mall-form-control">
+                                      <label htmlFor="confirm-password" className="signup-label">Confirmar Contraseña</label>
+                                      <input
+                                        id="confirmPassword"
+                                        
+                                        type="password"
+                                        value={values.confirmPassword}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        className={
+                                          errors.confirmPassword && touched.confirmPassword ? 'text-input error' : 'input'
+                                        }
+                                      />
+                                      {errors.confirmPassword && touched.confirmPassword && (
+                                        <div className="input-feedback">{errors.confirmPassword}</div>
+                                      )}
+                                </div>
+                              </div>
+                              <div className="mall-signup-terms">
+                                
+                                <p className="terms">Al hacer clic en "Registrarte", aceptas nuestras <a href="/" className="termsconditions" >Condiciones de Uso y la politica de privacidad</a>.
 
-                  <Form.Item required label="Nombre">
-                    <Input
-                      id="name"
-                      placeholder="Nombre"
-                      type="text"
-                      value={values.name}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      className={
-                        errors.name && touched.name ? 'text-input error' : 'text-input'
-                      }
-                    />
-                    {errors.name && touched.name && (
-                      <div className="input-feedback">{errors.name}</div>
-                    )}
-                  </Form.Item>
-
-                  <Form.Item required label="Apellido">
-                    <Input
-                      id="lastName"
-                      placeholder="Apellido"
-                      type="text"
-                      value={values.lastName}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      className={
-                        errors.lastName && touched.lastName ? 'text-input error' : 'text-input'
-                      }
-                    />
-                    {errors.lastName && touched.lastName && (
-                      <div className="input-feedback">{errors.lastName}</div>
-                    )}
-                  </Form.Item>
-
-                  <Form.Item required label="Email" hasFeedback validateStatus={errors.email && touched.email ? "error" : 'success'}>
-                    <Input
-                      id="email"
-                      placeholder="Enter your Email"
-                      type="email"
-                      value={values.email}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      className={
-                        errors.email && touched.email ? 'text-input error' : 'text-input'
-                      }
-                    />
-                    {errors.email && touched.email && (
-                      <div className="input-feedback">{errors.email}</div>
-                    )}
-                  </Form.Item>
-
-                  <Form.Item required label="Contraseña" hasFeedback validateStatus={errors.password && touched.password ? "error" : 'success'}>
-                    <Input
-                      id="password"
-                      placeholder="Ingresa tu contraseña"
-                      type="password"
-                      value={values.password}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      className={
-                        errors.password && touched.password ? 'text-input error' : 'text-input'
-                      }
-                    />
-                    {errors.password && touched.password && (
-                      <div className="input-feedback">{errors.password}</div>
-                    )}
-                  </Form.Item>
-
-                  <Form.Item required label="Confirmar" hasFeedback>
-                    <Input
-                      id="confirmPassword"
-                      placeholder="Confirma tu contraseña"
-                      type="password"
-                      value={values.confirmPassword}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      className={
-                        errors.confirmPassword && touched.confirmPassword ? 'text-input error' : 'text-input'
-                      }
-                    />
-                    {errors.confirmPassword && touched.confirmPassword && (
-                      <div className="input-feedback">{errors.confirmPassword}</div>
-                    )}
-                  </Form.Item>
-
-                  <Form.Item {...tailFormItemLayout}>
-                    <button onClick={handleSubmit} type="primary" className="login-form-button" disabled={isSubmitting} >
-                      Submit
-                    </button>
-                  </Form.Item>
-                </Form>
+                                </p>
+                              </div>
+                              <div className="mall-form-action">
+                                <button type="submit" className="button button-cta primary-btn btn-align-lg is-bold is-fullwidth rounded raised no-lh will-load mall-btn-signup">Registrarte</button>
+                              </div>
+                             </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
+              <div class="column login-column is-7 is-hidden-mobile hero-banner">
+        <div class="hero signup-hero is-fullheight is-theme-primary is-relative">
+            <div class="columns has-text-centered">
+                <div class="column">
+                    <h1 class="title is-2 light-text">
+                        Join the community
+                    </h1>
+                    <h3 class="subtitle is-5 light-text">
+                        Join our community of customers and get access to our support forum. We'll be glad to help you
+                        and to answer your questions.
+                    </h3>
+                    
+                    <img className="mockup"  src="/images/register_photo2.svg" alt=""/>
+                    
+                    <div class="already">
+                        
+                        <a href="/login" className="not-member" >Ya tenes una cuenta?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>                          
+            </div>
 
+            
               
-              <div className="column register-bg" >
-                      
-              </div>
-          </div>  
-        
            </> 
 
         );
