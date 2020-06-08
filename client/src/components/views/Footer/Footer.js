@@ -24,7 +24,7 @@ function Footer() {
                                 <h5>Contacto</h5>
                                 <ul className="contacts">
                                     <li><a href="tel://61280932400"><i className="icon_mobile"></i></a></li>
-                                    <li><a href="mailto:contacto@hindutimes.com"><i className="icon_mail_alt"></i>contacto@hindutimes.com</a></li>
+                                    <li><a href="mailto:contacto@endlyJob.com"><i className="icon_mail_alt"></i>contacto@endlyJob.com</a></li>
                                 </ul>
                                 <br/>
                                 <h5 style={{marginBottom:'8px'}}>FOLLOW US</h5>

@@ -196,12 +196,11 @@ function RegisterPage(props) {
         <div class="hero signup-hero is-fullheight is-theme-primary is-relative">
             <div class="columns has-text-centered">
                 <div class="column">
-                    <h1 class="title is-2 light-text">
-                        Join the community
+                    <h1 className="title is-2 light-text register-title">
+                        Unite a <span className="company-name">endlyJob</span>
                     </h1>
-                    <h3 class="subtitle is-5 light-text">
-                        Join our community of customers and get access to our support forum. We'll be glad to help you
-                        and to answer your questions.
+                    <h3 className="subtitle is-5 light-text register-subtitle">
+                        Encontra los mejores candidatos.
                     </h3>
                     
                     <img className="mockup"  src="/images/register_photo2.svg" alt=""/>

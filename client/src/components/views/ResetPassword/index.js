@@ -43,9 +43,9 @@ function Resetpassword(props) {
                 
                 <form method="POST" onSubmit={handleSubmit}><input type="hidden" name="_token" value="Iq4JI9SjN0EU28ScGK2Jn0J11BfjuSqdg4fNFWmt" />
                 <div class="field">
-                    <label for="email">Correo electrónico</label>
+                    <label for="email">E-Mail</label>
 
-                    <input class="input has-text-centered" type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)}  placeholder="Correo electrónico" maxlength="191" required="" autofocus="" />
+                    <input class="input has-text-centered" type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)}  placeholder="email@email.com" maxlength="191" required="" autofocus="" />
                 </div>
                 
                 <div class="field has-text-centered">

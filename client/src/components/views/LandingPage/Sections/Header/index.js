@@ -37,16 +37,11 @@ function Header(props) {
         
         <PageInfo />
         
-        <div className="columns">
-            <div className="column" style={{textAlign:'center'}}>
-
-                <h1>Ultimos Empleos</h1>
-            </div>
-        </div>
-
+       
         <div className="columns">
             <div className="column is-three-quarters">
                 <div className="container-job">
+                <h1>Ultimos Empleos</h1>
                  <LastJobs />
                 </div>
                 

@@ -6,3 +6,25 @@
     font-family: 'Roboto', sans-serif;
     font-size: 17px;
 }
+
+.media-content .button{
+    transition: all 1s;
+}
+
+.media-content .button:hover{
+    background-color: #79ceb7;
+}
+
+@media (max-width: 480px) {
+    .box{
+        
+    
+        
+    .media-content{
+        display: flex;
+        flex-direction: column;
+        
+    }
+}
+}
+  
