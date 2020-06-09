@@ -39,7 +39,7 @@ function Header(props) {
         
        
         <div className="columns">
-            <div className="column is-three-quarters">
+            <div className="column is-three-quarters"  >
                 <div className="container-job">
                 <h1>Ultimos Empleos</h1>
                  <LastJobs />
