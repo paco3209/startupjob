@@ -6,6 +6,7 @@ import axios from 'axios';
 import { USER_SERVER } from '../../../Config';
 import { withRouter } from 'react-router-dom';
 import { useSelector } from "react-redux";
+import swal from 'sweetalert';
 
 
 function RightMenu(props) {
@@ -16,13 +17,23 @@ function RightMenu(props) {
       if (response.status === 200) {
         props.history.push("/login");
       } else {
-        alert('Log Out Failed')
+        swal({
+          title: "Ooops",
+          text: "Parece que algo salio mal.",
+          icon: "error",
+          button: "ok",
+        });
       }
     });
   };
 
   const errorLogin = () => {
-    alert("Debes estar logueado para poder publicar.")
+    swal({
+      title: "Ooops",
+      text: "Debes estar logueado para poder publicar.",
+      icon: "error",
+      button: "ok",
+    });
   }
 
   const NavbarGuest = () => {
@@ -52,7 +63,7 @@ function RightMenu(props) {
           </p>
           <p className="control">
             
-            <a className="button is-small is-primary" href="/login" onClick={errorLogin} >
+            <a className="button is-small is-primary"  onClick={errorLogin} >
               
               <span>Publicar Empleo</span>
             </a>

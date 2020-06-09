@@ -46,7 +46,7 @@ function JobPost(props) {
         let contacto = data.url
 
         if(re.test(contacto)){
-            contacto = "mailto:" + contacto
+            contacto = "mailto:" + contacto + "?subject=endlyJob - " + data.title
         }
  
         
