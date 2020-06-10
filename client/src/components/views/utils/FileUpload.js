@@ -18,8 +18,8 @@ function FileUpload(props) {
             .then(response => {
                 if (response.data.success) {
 
-                    setImages([...Images, response.data.image])
-                    props.refreshFunction([...Images, response.data.image])
+                    setImages([...Images, response.data.image.url])
+                    props.refreshFunction([...Images, response.data.image.url])
 
                 } else {
                     alert('Fallo el Servidor. No se puede guardar la imagen')
