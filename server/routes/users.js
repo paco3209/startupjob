@@ -4,7 +4,8 @@ const { User } = require("../models/User");
 
 const { auth } = require("../middleware/auth");
 const { transporter,getPasswordResetURL,resetPasswordTemplate} = require("../middleware/email");
-  
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 //=================================
 //             User
@@ -28,11 +29,15 @@ const { userId, token } = req.params
   const { password } = req.body
   console.log(password)
   // highlight-start
-  User.findOne({ _id: userId })
+   User.findOne({ _id: userId })
     .then(user => {
-      const secret = user.password + "-" + user.createdAt
+
+    
+
+      const secret = 'secret'
       const payload = jwt.decode(token, secret)
-      if (payload.userId === user.id) {
+      
+      if (payload === user.id) {
         bcrypt.genSalt(10, function(err, salt) {
           // Call error-handling middleware:
           if (err) return
@@ -49,7 +54,7 @@ const { userId, token } = req.params
     // highlight-end
     .catch(() => {
       res.status(404).json("Usuario Invalido")
-    })
+    }) 
 })
 
 router.post("/register", (req, res) => {
@@ -113,6 +118,8 @@ router.post("/reset_pw/user/:email",(req,res) => {
         
         user.generateTokenResetPassword((err,user) => {
             if (err) return res.status(400).send(err);
+            
+                
                 const token = user.token
                 const url = getPasswordResetURL(user,token)
                 const emailTemplate = resetPasswordTemplate(user, url)

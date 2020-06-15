@@ -2,23 +2,35 @@ import React,{useState} from 'react'
 import Axios from 'axios';
 import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
+import {USER_SERVER} from '../../Config';
+import { withRouter } from 'react-router-dom';
 
 
 function UpdatePassword(props) {
     const [password, setpassword] = useState("");
     const [confirmPassword, setconfirmPassword] = useState("");
+    const [error, seterror] = useState("")
 
 
     const handleSubmit = (e) => {
-        e.preventDefaul();
+        
+        e.preventDefault()
+
 
         const {userId, token} = props.match.params;
         
+        console.log(password);
+        
+        if(password == confirmPassword){
 
-        Axios.post(`/api/users/receive_new_password/${userId}/${token}`,password)
+
+        Axios.post(`${USER_SERVER}/receive_new_password/${userId}/${token}`,{password})
             .then(res => console.log("RESPONSE FROM SERVER TO CLIENT:", res))
             .catch(err => console.log("SERVER ERROR TO CLIENT:", err))
-        
+        }else{
+            console.log("error");
+            
+        }
 
     }
 
@@ -77,4 +89,4 @@ function UpdatePassword(props) {
     )
 }
 
-export default UpdatePassword
+export default withRouter(UpdatePassword)

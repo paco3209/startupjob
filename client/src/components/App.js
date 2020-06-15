@@ -29,12 +29,12 @@ function App() {
           <Route exact path="/login" component={Auth(LoginPage, false)} />
           <Route exact path="/register" component={Auth(RegisterPage, false)} />
           <Route exact path="/jobsid/:jobId" component={Auth(JobInfo, null)} />
-          <Route exact path="/post" component={Auth(PostJob, true)} />
+          
           <Route exact path="/post" component={Auth(PostJob, true)} />
           <Route exact path="/jobsbyuser" component={Auth(JobsbyUser, true)} />
           <Route exact path="/about" component={Auth(About, null)} />
           <Route exact path="/reset_password" component={Auth(ResetPassword, null)} />
-          <Route exact path="/update_password/:userId/:token" component={Auth(UpdatePassword, true)} />
+          <Route exact path="/update_password/:userId/:token" component={Auth(UpdatePassword, false)} />
         </Switch>
       
       
