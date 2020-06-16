@@ -95,7 +95,7 @@ function LoginPage(props) {
                     <p className="not-member" >
                       <h1>
                         <a href="/">
-                          <span className="logo" style={{color:'#CCCCCC'}}>endlyJob</span>
+                          <span className="logo" >endlyJob</span>
                         </a>
                       </h1>
                      
