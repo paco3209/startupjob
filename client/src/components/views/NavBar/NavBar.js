@@ -22,8 +22,8 @@ function NavBar() {
     <nav className="navbar is-white topNav">
     <div className="container">
       <div className="navbar-brand">
-        <a className="navbar-item" href="../">
-          <img src="../images/bulma.png" width="112" height="28" />
+        <a className="logos" href="../">
+          <span className="main_logo" >endlyJob</span>
         </a>
         <div className="navbar-burger burger" data-target="topNav">
           <span></span>

@@ -92,8 +92,13 @@ function LoginPage(props) {
               <div className="hero is-fullheight">
                   <div className="hero-heading">
                     <div className="section has-text-centered">
-                    <p className="not-member">
-                     LOGO
+                    <p className="not-member" >
+                      <h1>
+                        <a href="/">
+                          <span className="logo" style={{color:'#CCCCCC'}}>endlyJob</span>
+                        </a>
+                      </h1>
+                     
                       
                     </p>
                     </div>

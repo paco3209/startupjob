@@ -76,7 +76,11 @@ function RegisterPage(props) {
                 <div className="hero is-fullheight">
                   <div className="hero-heading">
                   <div className="section intro-section has-text-centered is-signup">
-                    <a href="https://cssninja.io"><img className="top-logo" src="https://cssninja.io/themes/cssninja-latest/assets/images/logo/cssninja-grayscale.svg" alt="Brand"/></a>
+                  <h1>
+                        <a href="/">
+                          <span className="logo" >endlyJob</span>
+                        </a>
+                      </h1>
                 </div>
                   </div>
                   <div className="hero-body">

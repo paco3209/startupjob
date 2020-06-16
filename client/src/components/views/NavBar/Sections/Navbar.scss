@@ -2,3 +2,13 @@
     border-color: #6C61F6;
     background-color: #6C61F6;
 }
+
+.main_logo{
+    font-family: 'Varela', sans-serif;
+    color: #6C61F6 !important; 
+    font-size: 30px;
+    &:hover{
+        background-color: #FFFFFF;
+        border-color: #FFFFFF;;
+    }
+}
