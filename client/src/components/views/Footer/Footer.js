@@ -7,7 +7,9 @@ function Footer() {
             <div className="container">
                 <div className="columns">
                     <div className="column">
-                        <img src="./img/logo.png" alt="logo" />
+                    <a href="/">
+                          <span className="logo" >endlyJob</span>
+                        </a>
                         </div>
                         <div className="column">
                             <div className="links">
