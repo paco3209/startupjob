@@ -58,10 +58,13 @@ function JobDescription() {
                     - Full Benefits
                     </div>
                 </div>
-                <div className="column">
-                    <div className="detail">
+                <div className="column" style={{display:'flex',justifyContent:'space-between', margin:'20px'}}>
+                    <div className="detail" >
                          <a href="/" className="button is-info" style={{color: '#fff'}}>Aplicar</a>
-                    </div>  
+                    </div> 
+                    <div className="back" >
+                    <a href="/" style={{marginTop:'30px'}} ><i className="fas fa-long-arrow-alt-left"></i>  Volver</a>
+                </div> 
                 </div>
             </div>
             

@@ -73,10 +73,13 @@ function JobInfo(props) {
             </div>    
             
             <div className="columns details">
-                <div className="column">
+                <div className="column" style={{display:'flex', justifyContent:'space-between'}} >
                     <div className="detail">
                          <a href={job.url} className="button is-info" style={{color: '#fff'}}>Aplicar</a>
                     </div>  
+                    <div className="back" >
+                    <a href="/"  ><i className="fas fa-long-arrow-alt-left"></i>  Volver</a>
+                </div>
                 </div>
             </div>
         </>

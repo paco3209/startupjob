@@ -100,11 +100,27 @@ function ListJobsByUser(props) {
     return (
         <>
         <NavBar/>
-        <h1>Empleos Publicados</h1>
+        <div className="columns">
+            <div className="column">
+            <div className="header" style={{display:'flex',justifyContent:'space-between', margin:'20px'}}>
+                <div className="title">
+                    <h1>
+                    Ultimos Empleos
+                    </h1>
+                    
+                </div>
+                <div className="back" >
+                    <a href="/" style={{marginTop:'30px'}} ><i className="fas fa-long-arrow-alt-left"></i>  Volver</a>
+                </div>
+            </div>    
+            
         <div className="listJobs" style={{minHeight:'100vh'}} >
             
             {renderJobs}
         </div>
+            </div>
+        </div>
+        
         <Footer />
         </>
     )
