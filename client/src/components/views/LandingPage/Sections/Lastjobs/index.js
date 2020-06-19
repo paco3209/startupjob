@@ -76,6 +76,11 @@ function Lastjobs() {
         getJobs(variables)
     }
 
+
+    const listCategory = () =>{
+        
+    }
+
     const renderJobs = jobs.map((job, index) => {
         return  (
             <div className="box" key={index}>
@@ -89,7 +94,7 @@ function Lastjobs() {
                     <div className="media-content" style={{display:'flex'}}>
                         <div className="content" style={{width:'75%'}}>
                                 
-                        <a href={`/jobsid/${job._id}`} className="job-title">{job.title}</a>
+                        <a href={`/jobsid/${job._id}`} style={{display:'table-cell'}} target="_blank" className="job-title">{job.title}</a>
                         <br/>
                                     <small>{job.company}</small> 
                                     <div className="tags">
