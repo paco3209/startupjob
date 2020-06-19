@@ -75,7 +75,7 @@ function JobInfo(props) {
             <div className="columns details">
                 <div className="column" style={{display:'flex', justifyContent:'space-between'}} >
                     <div className="detail">
-                         <a href={job.url} className="button is-info" style={{color: '#fff'}}>Aplicar</a>
+                         <a href={job.url}  style={{display:'table-cell'}} target="_blank" className="button is-info" style={{color: '#fff'}}>Aplicar</a>
                     </div>  
                     <div className="back" >
                     <a href="/"  ><i className="fas fa-long-arrow-alt-left"></i>  Volver</a>

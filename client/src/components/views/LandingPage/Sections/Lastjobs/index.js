@@ -121,7 +121,11 @@ function Lastjobs() {
 
     return (
         <>
-        <div className="searchTerm">
+        <div className="columns">
+            <div className="column is-three-quarters"  >
+                <div className="container-job">
+                <h1>Ultimos Empleos</h1>
+                <div className="searchTerm">
         <SearchFeature
             refreshFunction={updateSearchTerms}
                 />
@@ -139,6 +143,79 @@ function Lastjobs() {
                     <button className="button is-success" onClick={onLoadMore}>Ver mas empleos</button>
                 </div>
             }
+                </div>
+                
+                
+            </div>
+            <div className="column">
+                
+               <div className="caterory" style={{marginTop:'30px'}}>
+                    <ul className="menu-list" >
+                        <li>
+                            <h3>Categorias</h3>
+                            <ul className="category-list">
+                                
+                                
+        	
+            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-administracion.html" title="Administración">Administración</a></li>
+          
+            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-call-center.html" title="Call center">Call center</a></li>
+          
+            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-comercio-exterior.html" title="Comercio exterior">Comercio exterior</a></li>
+          
+            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-comunicacion.html" title="Comunicación">Comunicación</a></li>
+          
+            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-construccion.html" title="Construcción">Construcción</a></li>
+          
+            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-diseno.html" title="Diseño">Diseño</a></li>
+          
+            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-educacion.html" title="Educación">Educación</a></li>
+          
+            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-finanzas.html" title="Finanzas">Finanzas</a></li>
+          
+            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-gastronomia.html" title="Gastronomia">Gastronomia</a></li>
+          
+            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-gerencia.html" title="Gerencia">Gerencia</a></li>
+          
+            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-ingenieria.html" title="Ingeniería">Ingeniería</a></li>
+          
+            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-legales.html" title="Legales">Legales</a></li>
+          
+            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-logistica.html" title="Logística">Logística</a></li>
+          
+            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-marketing.html" title="Marketing">Marketing</a></li>
+          
+            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-mineria.html" title="Minería">Minería</a></li>
+          
+            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-oficios.html" title="Oficios">Oficios</a></li>
+          
+            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-produccion.html" title="Producción">Producción</a></li>
+          
+            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-recursos-humanos.html" title="Recursos humanos">Recursos humanos</a></li>
+          
+            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-salud.html" title="Salud">Salud</a></li>
+          
+            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-secretaria.html" title="Secretaria">Secretaria</a></li>
+          
+            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-seguros.html" title="Seguros">Seguros</a></li>
+          
+            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-tecnologia.html" title="Tecnología">Tecnología</a></li>
+          
+            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-ventas.html" title="Ventas">Ventas</a></li>
+          
+          
+
+
+                            </ul>
+                        </li>
+                    </ul>
+                    </div> 
+                </div>
+            
+        </div>
+
+
+        
         </>
     )
 }
