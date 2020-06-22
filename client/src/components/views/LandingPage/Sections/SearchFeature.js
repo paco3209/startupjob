@@ -55,12 +55,12 @@ function SearchFeature(props) {
             </form>    
             </div>
             <div className="tag-search">
-            {Searching && (<div  className="tags has-addons">
-            <span className="tag is-link">
-            {Term}
-            <button className="delete is-small" onClick={resetSearch}></button>
-            </span>
-                            </div>)}
+                {Searching && (<div  className="tags has-addons">
+                <span className="tag is-link">
+                {Term}
+                <button className="delete is-small" onClick={resetSearch}></button>
+                </span>
+                                </div>)}
         </div>
         </div>
         

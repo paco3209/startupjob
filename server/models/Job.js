@@ -9,7 +9,11 @@ const Schema = mongoose.Schema;
     typeJob: {
         type: String,
         required: true
-    }, //remoto, pasantia, partTime
+    }, 
+    category :{
+        type: String,
+        required: true
+    },//remoto, pasantia, partTime
     description: {
         type: String,
         required: true

@@ -36,7 +36,7 @@ function PageInfo() {
                         <div className="column">
                             <div className="icon-box">
                                 <div className="icon-wrapper is-feature-reveal" data-sr-id="5" >
-                                    <img src="/images/publicicon.svg" style={{width:'48px',height:'48px'}}/>
+                                    <img src="/images/iconfinder_jee01-08_2180876.svg" style={{width:'48px',height:'48px'}}/>
                                 </div>
                                 <div className="box-content">
                                     <div className="box-title">
@@ -53,7 +53,7 @@ function PageInfo() {
                         <div className="column">
                             <div className="icon-box">
                                 <div className="icon-wrapper is-feature-reveal" data-sr-id="7"  >
-                                    <img src="/images/emojiicon.svg" style={{width:'48px',height:'48px'}} />
+                                    <img src="/images/iconfinder_jee01-05_2180879.svg" style={{width:'48px',height:'48px'}} />
                                 </div>
                                 <div className="box-content">
                                     <div className="box-title">
@@ -69,7 +69,7 @@ function PageInfo() {
                         <div className="column">
                             <div className="icon-box">
                                 <div className="icon-wrapper is-feature-reveal" data-sr-id="8" >
-                                    <img src="/images/fotoicon.svg" style={{width:'48px',height:'48px'}} />
+                                    <img src="/images/iconfinder_jee01-09_2180868.svg" style={{width:'48px',height:'48px'}} />
                                 </div>
                                 <div className="box-content">
                                     <div className="box-title">

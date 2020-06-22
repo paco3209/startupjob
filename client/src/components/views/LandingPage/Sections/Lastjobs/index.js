@@ -16,6 +16,9 @@ function Lastjobs() {
     const [Limit, setLimit] = useState(8)
     const [PostSize, setPostSize] = useState()
     const [searchTerm, setsearchTerm] = useState("")
+    const [category, setcategory] = useState("")
+    
+
     
 
     useEffect(() => {
@@ -27,6 +30,23 @@ function Lastjobs() {
         getJobs(variables)
         
     }, [])
+
+    const getJobsByCategory =  async (variables) => {
+        await Axios.post('/api/jobs/getjobsbycategory', variables)
+            .then(response => {
+                if(response.data.success){
+                    if(variables.loadMore){
+                        setjobs([...jobs,...response.data.products]) 
+                    }else{
+                        setjobs(response.data.products)
+                    }
+                   setPostSize(response.data.postSize)
+                }else{
+                    alert("Error de carga.")
+                }
+            })
+
+    }
 
     const getJobs =  async (variables) => {
         await Axios.post('/api/jobs/getjobs', variables)
@@ -68,7 +88,7 @@ function Lastjobs() {
             searchTerm: newSearchTerm
         }
 
-        console.log(variables);
+        
         
         setSkip(0)
         setsearchTerm(newSearchTerm)
@@ -76,10 +96,30 @@ function Lastjobs() {
         getJobs(variables)
     }
 
+    const updateCategory = (newSearchTerm, Description) => {
 
-    const listCategory = () =>{
+        const variables = {
+            skip: 0,
+            limit: Limit,
+            
+            searchTerm: newSearchTerm
+        }
+        setcategory(Description)
+        
+        
+        setSkip(0)
+        
+
+        getJobs(variables)
+    }
+
+
+    const resetSearch = () => {
+        updateCategory("")
+        setcategory("")
         
     }
+    
 
     const renderJobs = jobs.map((job, index) => {
         return  (
@@ -155,14 +195,23 @@ function Lastjobs() {
             <div className="column">
                 
                <div className="caterory" style={{marginTop:'30px'}}>
+               
                     <ul className="menu-list" >
                         <li>
                             <h3>Categorias</h3>
+                            {category && (<div  className="tags has-addons">
+            <span className="tag is-info">
+            {category}
+            <button className="delete is-small" onClick={resetSearch}></button>
+            </span>
+                            </div>)}
                             <ul className="category-list">
                                 
                                 
         	
-            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-administracion.html" title="Administración">Administración</a></li>
+            <li><a class="filter-item" onClick={()=>{
+                updateCategory("administracion","Administración")
+            }} title="Administración">Administración</a></li>
           
             <li><a class="filter-item" href="/ofertas-de-empleo-categoria-call-center.html" title="Call center">Call center</a></li>
           

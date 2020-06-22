@@ -60,6 +60,7 @@ function JobPost(props) {
             title: data.title,
             userpost: props.user.userData._id,
             typeJob: data.jobtype,
+            category: data.category,
             images: Images,
             tags: data.test,
             link: data.link,
@@ -121,12 +122,40 @@ function JobPost(props) {
                         <br />
                         <div style={{ marginBotton: '10px' }} className="select" >
                             <select style={{ marginBotton: '20px' }} name="jobtype" ref={register({ required: true })}>
-                                <option value="" disabled defaultValue="prueba">Modalidad de Trabajo</option>
+                                <option value="" selected disabled>Elegi una modalidad de trabajo</option>
                                 <option value="fulltime">Full Time</option>
                                 <option value="pasantia">Pasantia</option>
                                 <option value="parttime">Part Time</option>
                                 <option value="remoto">Remoto</option>
 
+                            </select>
+                        </div>
+                        <div style={{ marginBotton: '10px' }} className="select" >
+                            <select style={{ marginBotton: '20px' }} name="category" ref={register({ required: true })}>
+                                <option value="" selected disabled>Elegi una categoria</option>
+                                <option value="administracion">Administración</option>
+                                <option value="callcenter">Call Center</option>
+                                <option value="comercioexterior">Comercio Exterior</option>
+                                <option value="comunicacion">Comunicación</option>
+                                <option value="construccion">Contrucción</option>
+                                <option value="diseno">Diseño</option>
+                                <option value="educacion">Educación</option>
+                                <option value="finanzas">Finanzas</option>
+                                <option value="gastronomia">Gastronommia</option>
+                                <option value="gerencia">Gerencia</option>
+                                <option value="ingenieria">Ingeniería</option>
+                                <option value="legales">Legales</option>
+                                <option value="logistica">Logística</option>
+                                <option value="marketing">Marketing</option>
+                                <option value="mineria">Minería</option>
+                                <option value="oficios">Oficios</option>
+                                <option value="produccion">Producción</option>
+                                <option value="recursoshumanos">Recursos Humanos</option>
+                                <option value="salud">Salud</option>
+                                <option value="secretaria">Secretaria</option>
+                                <option value="seguros">Seguros</option>
+                                <option value="tecnologia">Tecnología</option>
+                                <option value="ventas">Ventas</option>  
                             </select>
                         </div>
                         <label htmlFor="link" className="label">Como aplicar?</label>
