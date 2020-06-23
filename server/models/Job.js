@@ -9,11 +9,11 @@ const Schema = mongoose.Schema;
     typeJob: {
         type: String,
         required: true
-    }, 
+    }, //remoto, pasantia, partTime
     category :{
         type: String,
         required: true
-    },//remoto, pasantia, partTime
+    },
     description: {
         type: String,
         required: true
@@ -44,11 +44,15 @@ const Schema = mongoose.Schema;
 
   jobSchema.index({ 
     title:'text',
-    description: 'text',
+    category: 'text',
+    description: 'text'
+    
 }, {
     weights: {
         name: 5,
-        description: 1,
+        category: 1,
+        description: 2
+        
     }
 })
 
