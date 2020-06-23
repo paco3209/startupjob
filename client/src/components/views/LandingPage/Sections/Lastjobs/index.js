@@ -213,49 +213,71 @@ function Lastjobs() {
                 updateCategory("administracion","Administración")
             }} title="Administración">Administración</a></li>
           
-            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-call-center.html" title="Call center">Call center</a></li>
+            <li><a class="filter-item" onClick={()=>{
+                updateCategory("callcenter","Call Center")}} title="Call center">Call center</a></li>
           
-            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-comercio-exterior.html" title="Comercio exterior">Comercio exterior</a></li>
+            <li><a class="filter-item" onClick={()=>{
+                updateCategory("comercioexterior","Comercio Exterior")}} title="Comercio exterior">Comercio exterior</a></li>
           
-            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-comunicacion.html" title="Comunicación">Comunicación</a></li>
+            <li><a class="filter-item" onClick={()=>{
+                updateCategory("comunicacion","Comunicación")}} title="Comunicación">Comunicación</a></li>
           
-            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-construccion.html" title="Construcción">Construcción</a></li>
+            <li><a class="filter-item" onClick={()=>{
+                updateCategory("contruccion","Construcción")}} title="Construcción">Construcción</a></li>
           
-            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-diseno.html" title="Diseño">Diseño</a></li>
+            <li><a class="filter-item" onClick={()=>{
+                updateCategory("diseno","Diseño")}} title="Diseño">Diseño</a></li>
           
-            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-educacion.html" title="Educación">Educación</a></li>
+            <li><a class="filter-item" onClick={()=>{
+                updateCategory("educacion","Educación")}} title="Educación">Educación</a></li>
           
-            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-finanzas.html" title="Finanzas">Finanzas</a></li>
+            <li><a class="filter-item" onClick={()=>{
+                updateCategory("finanzas","Finanzas")}} title="Finanzas">Finanzas</a></li>
           
-            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-gastronomia.html" title="Gastronomia">Gastronomia</a></li>
+            <li><a class="filter-item" onClick={()=>{
+                updateCategory("gastronomia","Gastronomia")}} title="Gastronomia">Gastronomia</a></li>
           
-            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-gerencia.html" title="Gerencia">Gerencia</a></li>
+            <li><a class="filter-item" onClick={()=>{
+                updateCategory("gerencia","Gerencia")}} title="Gerencia">Gerencia</a></li>
           
-            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-ingenieria.html" title="Ingeniería">Ingeniería</a></li>
+            <li><a class="filter-item" onClick={()=>{
+                updateCategory("ingenieria","Ingeniería")}} title="Ingeniería">Ingeniería</a></li>
           
-            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-legales.html" title="Legales">Legales</a></li>
+            <li><a class="filter-item" onClick={()=>{
+                updateCategory("legales","Legales")}} title="Legales">Legales</a></li>
           
-            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-logistica.html" title="Logística">Logística</a></li>
+            <li><a class="filter-item" onClick={()=>{
+                updateCategory("logistica","Logística")}} title="Logística">Logística</a></li>
           
-            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-marketing.html" title="Marketing">Marketing</a></li>
+            <li><a class="filter-item" onClick={()=>{
+                updateCategory("marketing","Marketing")}} title="Marketing">Marketing</a></li>
           
-            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-mineria.html" title="Minería">Minería</a></li>
+            <li><a class="filter-item" onClick={()=>{
+                updateCategory("mineria","Minería")}} title="Minería">Minería</a></li>
           
-            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-oficios.html" title="Oficios">Oficios</a></li>
+            <li><a class="filter-item" onClick={()=>{
+                updateCategory("oficios","Oficios")}} title="Oficios">Oficios</a></li>
           
-            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-produccion.html" title="Producción">Producción</a></li>
+            <li><a class="filter-item" onClick={()=>{
+                updateCategory("produccion","Producción")}} title="Producción">Producción</a></li>
           
-            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-recursos-humanos.html" title="Recursos humanos">Recursos humanos</a></li>
+            <li><a class="filter-item" onClick={()=>{
+                updateCategory("recursoshumanos","Recursos Humanos")}} title="Recursos humanos">Recursos Humanos</a></li>
           
-            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-salud.html" title="Salud">Salud</a></li>
+            <li><a class="filter-item" onClick={()=>{
+                updateCategory("salud","Salud")}} title="Salud">Salud</a></li>
           
-            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-secretaria.html" title="Secretaria">Secretaria</a></li>
+            <li><a class="filter-item" onClick={()=>{
+                updateCategory("secretaria","Secretaria")}} title="Secretaria">Secretaria</a></li>
           
-            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-seguros.html" title="Seguros">Seguros</a></li>
+            <li><a class="filter-item" onClick={()=>{
+                updateCategory("seguros","Seguros")}} title="Seguros">Seguros</a></li>
           
-            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-tecnologia.html" title="Tecnología">Tecnología</a></li>
+            <li><a class="filter-item" onClick={()=>{
+                updateCategory("tecnologia","Tecnología")}} title="Tecnología">Tecnología</a></li>
           
-            <li><a class="filter-item" href="/ofertas-de-empleo-categoria-ventas.html" title="Ventas">Ventas</a></li>
+            <li><a class="filter-item" onClick={()=>{
+                updateCategory("ventas","Ventas")}} title="Ventas">Ventas</a></li>
           
           
 
