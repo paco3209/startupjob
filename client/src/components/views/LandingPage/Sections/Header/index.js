@@ -27,7 +27,7 @@ function Header(props) {
 
                     Conectando empresas con personas con <span className="company_name">endlyJob</span>
                 </h1>
-                <p className="description">Encontra tu primer empleo.</p>
+                <p className="description">Encontra tu proximo empleo.</p>
                 
                     
                 
