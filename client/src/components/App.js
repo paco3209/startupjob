@@ -11,7 +11,8 @@ import PostJob from './views/JobPost';
 import JobsbyUser from './views/ListJobsByUser';
 import About from './views/About';
 import ResetPassword from './views/ResetPassword';
-import UpdatePassword from './views/UpdatePassword/UpdatePassword'
+import UpdatePassword from './views/UpdatePassword/UpdatePassword';
+import Api from './views/Api/Api';
 
 
 //null   Anyone Can go inside
@@ -35,6 +36,7 @@ function App() {
           <Route exact path="/about" component={Auth(About, null)} />
           <Route exact path="/reset_password" component={Auth(ResetPassword, null)} />
           <Route exact path="/update_password/:userId/:token" component={Auth(UpdatePassword, false)} />
+          <Route exact path="/apis" component={Auth(Api, null)} />
         </Switch>
       
       
