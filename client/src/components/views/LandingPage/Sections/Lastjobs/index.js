@@ -6,6 +6,7 @@ import Moment from 'react-moment';
 import 'moment/locale/es';
 import ImageSlider from '../../../utils/ImageSlider';
 import SearchFeature from '../SearchFeature';
+import LoadMore from '../loadMoreButton';
 
 
 
@@ -17,6 +18,7 @@ function Lastjobs() {
     const [PostSize, setPostSize] = useState()
     const [searchTerm, setsearchTerm] = useState("")
     const [category, setcategory] = useState("")
+    const [isLoading, setisLoading] = useState(false)
     
 
     
@@ -66,6 +68,7 @@ function Lastjobs() {
     }
 
     const onLoadMore = () => {
+        setisLoading(true)
         let skip = Skip + Limit;
 
         const variables = {
@@ -77,6 +80,7 @@ function Lastjobs() {
         }
         getJobs(variables)
         setSkip(skip)
+        setisLoading(false)
     }
 
     const updateSearchTerms = (newSearchTerm) => {
@@ -183,10 +187,10 @@ function Lastjobs() {
             
         </section>
         <br/>
-        {PostSize >= Limit &&
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <button className="button is-success" onClick={onLoadMore}>Ver mas empleos</button>
-                </div>
+        
+                {PostSize >= Limit && 
+                            
+                <LoadMore onLoadMore={onLoadMore} />
             }
                 </div>
                 

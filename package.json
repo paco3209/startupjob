@@ -17,7 +17,7 @@
   "author": "John ahn",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^3.0.6",
+    "bcrypt": "^3.0.8",
     "body-parser": "^1.18.3",
     "bulma": "^0.8.2",
     "cloudinary": "^1.21.0",
@@ -32,16 +32,17 @@
     "moment": "^2.24.0",
     "mongoose": "^5.9.11",
     "multer": "^1.4.2",
-    "node-sass": "^4.13.1",
     "nodemailer": "^6.4.8",
     "react-dropzone": "^11.0.1",
     "react-json-pretty": "^2.2.0",
     "react-redux": "^5.0.7",
+    "react-snap": "^1.23.0",
     "saslprep": "^1.0.3",
     "supports-color": "^7.1.0"
   },
   "devDependencies": {
     "concurrently": "^4.1.0",
+    "node-sass": "^4.14.1",
     "nodemon": "^1.19.1"
   }
 }
