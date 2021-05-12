@@ -32,7 +32,7 @@
     "moment": "^2.24.0",
     "mongoose": "^5.9.11",
     "multer": "^1.4.2",
-    "nodemailer": "^6.4.8",
+    "nodemailer": "^6.4.16",
     "react-dropzone": "^11.0.1",
     "react-json-pretty": "^2.2.0",
     "react-redux": "^5.0.7",
